@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'DSJ_main',
     'Login',
-    'Notice',
+    'notice',
     'Products',
     'Purchase',
     'QnA',
