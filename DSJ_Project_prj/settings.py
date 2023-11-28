@@ -38,12 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'DSJ_main',
-    'Login',
-    'Notice',
+    'main',
+    'login',
+    'notice',
     'products',
-    'Purchase',
-    'QnA',
+    'purchase',
+    'qna',
 ]
 
 MIDDLEWARE = [

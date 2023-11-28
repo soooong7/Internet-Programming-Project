@@ -1,8 +1,14 @@
 from django.db import models
 
-# Products Post 모델
-class ProductsTag(models.Model):
-    name = models.CharField(max_length=50, unique=True)
+class CategoryTag(models.Model):
+    name = models.CharField(max_length=20, unique=True)
+    slug = models.SlugField(max_length=200, unique=True, allow_unicode=True)
+
+    def __str__(self):
+        return self.name
+
+class ColorTag(models.Model):
+    name = models.CharField(max_length=20, unique=True)
     slug = models.SlugField(max_length=200, unique=True, allow_unicode=True)
 
     def __str__(self):
@@ -16,8 +22,10 @@ class ProductsPost(models.Model):
     # 제품 사진
     image = models.ImageField(upload_to='products/images/%Y/%m/%d/', blank=True)
 
-    tags = models.ManyToManyField(ProductsTag, blank=True)
+    # 제품 태그 (카테고리, 색상)
+    category = models.ManyToManyField(CategoryTag, related_name='category_tag', blank=True)
+    color = models.ForeignKey(ColorTag, related_name='color_tag', blank=True, null=True,
+                                  on_delete=models.SET_NULL)
 
     def __str__(self):
         return f'{self.name}'
-
