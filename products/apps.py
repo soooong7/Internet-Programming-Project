@@ -1,6 +1,5 @@
 from django.apps import AppConfig
 
-
-class DsjConfig(AppConfig):
+class ProductsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'DSJ_main'
+    name = 'products'

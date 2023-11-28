@@ -1,6 +1,5 @@
 from django.apps import AppConfig
 
-
-class QnaConfig(AppConfig):
+class MainConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'QnA'
+    name = 'main'
