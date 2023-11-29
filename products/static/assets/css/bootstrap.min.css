@@ -39,6 +39,13 @@
     box-sizing: border-box
 }
 
+@font-face {
+  font-family: 'Pretendard';
+  src: url('../fonts/pretendard.css');
+  font-weight: 400;
+  font-style: normal;
+}
+
 @media (prefers-reduced-motion:no-preference) {
     :root {
         scroll-behavior: smooth
