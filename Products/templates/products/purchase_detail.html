@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>구매 페이지- 김민지</title>
+  <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Inter%3A100%2C300%2C400%2C500%2C600%2C700%2C800' %}"/>
+  <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A100%2C300%2C400%2C500%2C600%2C700%2C800' %}"/>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+</head>
+<body>
+<div class="item--z9F">
+  <div class="navs-jW9">
+    <div class="logo-oXw">
+      <img class="logoimage-i97" src="{% static 'images/logoimage.png' %}"/>
+      <p class="logotext-pxq">duksung Jacket</p>
+    </div>
+    <div class="nav-links-VJH">
+      <p class="notice-Bgu">Notice</p>
+      <div class="products-WUH">
+        <p class="products-qmT">Products</p>
+        <img class="akar-icons-chevron-down-wpV" src="{% static 'images/akar-icons-chevron-down.png' %}"/>
+      </div>
+      <p class="review-pNV">Review</p>
+      <p class="qa-ABT">q&amp;a</p>
+    </div>
+    <div class="loginbutton-JYZ">Login</div>
+  </div>
+  <div class="auto-group-nhgo-JS5">
+    <div class="auto-group-zcu1-1rH">무궁화 학잠 </div>
+    <div class="auto-group-v1w9-EDF">
+      <div class="auto-group-wmnj-u4V">
+        <div class="rectangle-1-3Ah">
+        </div>
+        <img class="navy-xoT" src="{% static 'images/navy-xeV.png' %}"/>
+      </div>
+      <div class="auto-group-mesx-HKw">
+        <div class="auto-group-yfmd-bLd">
+          <p class="item--jhj">무궁화 학잠 </p>
+          <p class="item--JRP">분류 -  학잠 &gt; 무궁화학잠</p>
+        </div>
+
+        <form method="post" action="{% url 'products:your_form_submission_view' %}" onsubmit="products(); return false;">
+        {% csrf_token %}
+
+        <p class="item--UFK">사이즈</p>
+        <div class="auto-group-9gnx-nmo">
+            <p class="item--6Xb" onclick="toggleDropdown('sizeDropdown')">사이즈 선택<br/></p>
+            <img class="icondown-18m" src="{% static 'images/icon_down.png' %}" onclick="toggleDropdown('sizeDropdown')"/>
+            <select id="sizeDropdown" name="selected_size" onchange="updateSelectedText('sizeDropdown', 'selectedSize')">
+                {% for size_category in size_categories %}
+                    <option value="{{ size_category.size }}">{{ size_category.size }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+         <p class="item--Lss">수량</p>
+         <div class="auto-group-7nx3-qpd">
+            <p class="item--WA5" onclick="toggleDropdown('quantityDropdown')">수량 선택<br/></p>
+            <img class="icondown-y3f" src="{% static 'images/icon_down.png' %}" onclick="toggleDropdown('quantityDropdown')"/>
+            <select id="quantityDropdown" name="selected_quantity" onchange="updateSelectedText('quantityDropdown', 'selectedQuantity')">
+              {% for quantity_category in quantity_categories %}
+                 <option value="{{ quantity_category.quantity }}">{{ quantity_category.quantity }}</option>
+              {% endfor %}
+            </select>
+         </div>
+
+
+        <!-- 선택된 색상과 크기를 표시할 엘리먼트 -->
+        <p id="selectedColor" class="selected-text"></p>
+        <p id="selectedSize" class="selected-text"></p>
+
+        <p class="item-50000-sRs">판매가: 50000원</p>
+
+        <!-- 수정: form 요소로 감싸고 submit 버튼 추가 -->
+        <button type="submit" class="auto-group-pbpo-NdX">구매하기</button>
+        </form>
+
+
+        <div class="auto-group-akbu-RLu">
+          <img class="image-4-NG9" src="{% static 'images/image-4.png' %}"/>
+          <img class="image-5-6C9" src="{% static 'images/image-5.png' %}"/>
+          <img class="image-6-q9j" src="{% static 'images/image-6.png' %}"/>
+        </div>
+      </div>
+    </div>
+
+    <p class="item--yFw">&lt;상세페이지&gt;</p>
+    <div class="auto-group-qgnp-Ehf">
+      <p class="size-info-Vdb">
+      size info
+      <br/>
+
+      </p>
+      <img class="image-3-bwX" src="{% static 'images/image-3.png' %}"/>
+      <p class="info-Y65">Info</p>
+      <div class="auto-group-cycp-SSM">
+        <img class="navy-N57" src="{% static 'images/navy.png' %}"/>
+        <img class="navy-ht5" src="{% static 'images/navy-UBB.png' %}"/>
+      </div>
+    </div>
+    <p class="item--2QZ">        &lt;구매 후기&gt;</p>
+    <div class="auto-group-vvqd-sAH">
+      <p class="id-20201111-s-Nsj">
+      ID: 20201111
+      <br/>
+      구매 사이즈: S
+      <br/>
+
+      </p>
+      <p class="s--Hjo">
+      158/42 학잠 S 후기
+      <br/>
+      좀 두꺼운 후드티 위에 입었더니 처음엔 작은가 싶었는데 그냥 정사이즈 느낌인듯!
+      <br/>
+      총 기장은 엉덩이 덮을랑 말랑하는 정도고 팔기장도 손등 덮는 길이라 딱 괜찮은 것 같아
+      </p>
+    </div>
+    <div class="auto-group-kdwj-TGu">
+      <p class="id-20202222-m-n4H">
+      ID: 20202222
+      <br/>
+      구매 사이즈: M
+      <br/>
+
+      </p>
+      <p class="item--HFw">
+
+      <br/>
+      좀 두꺼운 후드티 위에 입었더니 처음엔 작은가 싶었는데 그냥 정사이즈 느낌인듯!
+      <br/>
+      총 기장은 엉덩이 덮을랑 말랑하는 정도고 팔기장도 손등 덮는 길이라 딱 괜찮은 것 같아
+      </p>
+    </div>
+  </div>
+</div>
+  <!-- JavaScript 함수 정의 -->
+    <script>
+        function toggleDropdown(dropdownId) {
+            var dropdown = document.getElementById(dropdownId);
+            if (dropdown.style.display === 'none' || dropdown.style.display === '') {
+                dropdown.style.display = 'block';
+            } else {
+                dropdown.style.display = 'none';
+            }
+        }
+
+        function updateSelectedText(dropdownId, selectedTextId) {
+            var dropdown = document.getElementById(dropdownId);
+            var selectedText = document.getElementById(selectedTextId);
+            selectedText.textContent = dropdown.options[dropdown.selectedIndex].text;
+        }
+
+        function purchase() {
+            alert("지금은 구매시즌이 아닙니다");
+        }
+    </script>
+</body>
+</html>
