@@ -25,6 +25,7 @@ def your_form_submission_view(request):
     else:
         return HttpResponse("잘못된 요청입니다.")
 
+
 class ProductsList(ListView):
     model = ProductsPost
     ordering = '-pk'
