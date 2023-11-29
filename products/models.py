@@ -16,6 +16,7 @@ class TypeCategory(models.Model):
 class ColorCategory(models.Model):
     color = models.CharField(max_length= 50, unique=True)
     slug = models.SlugField(max_length=200, unique=True, allow_unicode=True)
+    
     def __str__(self):
         return self.color
 

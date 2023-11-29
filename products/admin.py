@@ -24,4 +24,3 @@ admin.site.register(ColorCategory, ColorCategoryAdmin)
 admin.site.register(NumberCategory, NumberCategoryAdmin)
 admin.site.register(SizeCategory, SizeCategoryAdmin)
 admin.site.register(TypeCategory, TypeCategoryAdmin)
-
