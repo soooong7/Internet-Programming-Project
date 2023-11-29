@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'login',
     'notice',
     'products',
-    'purchase',
     'qna',
 ]
 
