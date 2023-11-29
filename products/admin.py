@@ -1,16 +1,27 @@
 from django.contrib import admin
-from .models import ProductsPost, CategoryTag, ColorTag
+from .models import ColorCategory, NumberCategory, SizeCategory, TypeCategory, ProductsPost
 
+class ColorCategoryAdmin(admin.ModelAdmin):
+    list_display = ['id', 'color']
+    # prepopulated_fields = 추가
+    prepopulated_fields = {'slug': ('color', )}
 
-# Register your models here.
-class CategoryAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'slug': ('name',)}
+class SizeCategoryAdmin(admin.ModelAdmin):
+    list_display = ['id', 'size']
+    prepopulated_fields = {'slug': ('size',)}
 
-class ColorAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'slug': ('name',)}
+class NumberCategoryAdmin(admin.ModelAdmin):
+    list_display = ['id', 'quantity']
+    prepopulated_fields = {'slug': ('quantity',)}
+
+class TypeCategoryAdmin(admin.ModelAdmin):
+    list_display = ['id', 'type']
+    prepopulated_fields = {'slug': ('type',)}
 
 
 admin.site.register(ProductsPost)
-admin.site.register(CategoryTag, CategoryAdmin)
-admin.site.register(ColorTag, ColorAdmin)
+admin.site.register(ColorCategory, ColorCategoryAdmin)
+admin.site.register(NumberCategory, NumberCategoryAdmin)
+admin.site.register(SizeCategory, SizeCategoryAdmin)
+admin.site.register(TypeCategory, TypeCategoryAdmin)
 
