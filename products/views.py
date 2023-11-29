@@ -10,6 +10,7 @@ def index(request):
     quantity_categories = NumberCategory.objects.all()
 
 
+
     return render(request, 'products/purchase_detail.html', {'quantity_categories': quantity_categories , 'size_categories': size_categories})
     # return render(request, 'products/purchase_detail.html')
 
