@@ -1486,7 +1486,7 @@ ol {
 ========================================*/
 .header {
   width: 100%;
-  background: transparent;
+  background: #617861;
   position: absolute;
   width: 100%;
   left: 0;
@@ -2071,11 +2071,10 @@ ol {
 ========================================*/
 .hero-area {
   position: relative;
-  background-image: url("../images/hero/bg-shapes.svg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: #081828;
+  background-color: #ffffff;
   z-index: 0;
 }
 
