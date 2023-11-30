@@ -1486,7 +1486,7 @@ ol {
 ========================================*/
 .header {
   width: 100%;
-  background: #617861;
+  background-color:#617861;
   position: absolute;
   width: 100%;
   left: 0;
@@ -1498,7 +1498,7 @@ ol {
     padding: 18px 0 !important;
   }
   .header .mobile-menu-btn .toggler-icon {
-    background-color: #fff;
+    background-color: #617861;
   }
   .header .button {
     margin: 0 !important;
@@ -1508,7 +1508,7 @@ ol {
     top: 67px !important;
     left: 0;
     width: 100%;
-    background-color: #fff;
+    background-color: #617861;
     z-index: 9;
     -webkit-box-shadow: 0px 15px 20px 0px rgba(0, 0, 0, 0.1);
             box-shadow: 0px 15px 20px 0px rgba(0, 0, 0, 0.1);
@@ -1519,16 +1519,16 @@ ol {
     border-radius: 8px;
   }
   .header .navbar .navbar-nav .nav-item a:hover {
-    color: #617861 !important;
+    color: #fff !important;
   }
   .header .navbar .navbar-nav .nav-item a.active {
-    color: #617861 !important;
+    color: #fff !important;
   }
   .header .navbar-nav .nav-item {
     margin: 0;
   }
   .header .navbar-nav .nav-item:hover a {
-    color: #617861;
+    color: #ff;
   }
   .header .navbar-nav .nav-item a {
     padding: 12px 16px !important;
@@ -1552,7 +1552,7 @@ ol {
     padding: 12px 12px;
   }
   .header .navbar-nav .nav-item .sub-menu .nav-item a:hover {
-    color: #617861 !important;
+    color: #fff !important;
   }
   .header .navbar-nav .nav-item a {
     color: #051441;
@@ -1570,7 +1570,7 @@ ol {
   }
   .header .navbar-nav .nav-item .sub-menu li.active {
     background: #fff !important;
-    color: #617861 !important;
+    color: #fff !important;
   }
   .header .navbar-nav .nav-item .sub-menu .nav-item {
     margin: 0 !important;
@@ -1580,13 +1580,13 @@ ol {
   }
   .header .navbar-nav .nav-item .sub-menu li:hover {
     background: #fff !important;
-    color: #617861 !important;
+    color: #fff !important;
   }
   .header .navbar-nav .nav-item a {
     font-size: 14px;
   }
   .header .navbar-nav .nav-item a:hover {
-    color: #617861;
+    color: #fff;
   }
 }
 
@@ -1613,16 +1613,16 @@ ol {
     border-radius: 8px;
   }
   .header .navbar .navbar-nav .nav-item a:hover {
-    color: #617861 !important;
+    color: #fff !important;
   }
   .header .navbar .navbar-nav .nav-item a.active {
-    color: #617861 !important;
+    color: #fff !important;
   }
   .header .navbar-nav .nav-item {
     margin: 0;
   }
   .header .navbar-nav .nav-item:hover a {
-    color: #617861;
+    color: #fff;
   }
   .header .navbar-nav .nav-item a {
     padding: 12px 16px !important;
@@ -1646,7 +1646,7 @@ ol {
     padding: 12px 12px;
   }
   .header .navbar-nav .nav-item .sub-menu .nav-item a:hover {
-    color: #617861 !important;
+    color: #fff !important;
   }
   .header .navbar-nav .nav-item a {
     color: #051441;
@@ -1664,7 +1664,7 @@ ol {
   }
   .header .navbar-nav .nav-item .sub-menu li.active {
     background: #fff !important;
-    color: #617861 !important;
+    color: #fff !important;
   }
   .header .navbar-nav .nav-item .sub-menu .nav-item {
     margin: 0 !important;
@@ -1674,13 +1674,13 @@ ol {
   }
   .header .navbar-nav .nav-item .sub-menu li:hover {
     background: #fff !important;
-    color: #617861 !important;
+    color: #fff !important;
   }
   .header .navbar-nav .nav-item a {
     font-size: 14px;
   }
   .header .navbar-nav .nav-item a:hover {
-    color: #617861;
+    color: #fff;
   }
 }
 
@@ -1727,23 +1727,23 @@ ol {
 }
 
 .header .navbar .navbar-nav .nav-item a.active {
-  color: #617861;
+  color: #fff;
 }
 
 .sticky .navbar .navbar-nav .nav-item a.active {
-  color: #617861;
+  color: #fff;
 }
 
 .sticky .navbar .navbar-nav .nav-item a {
-  color: #617861;
+  color: #fff;
 }
 
 .header .navbar .navbar-nav .nav-item .sub-menu a.active {
-  color: #617861;
+  color: #fff;
 }
 
 .sticky .navbar .navbar-nav .nav-item .sub-menu a.active {
-  color: #617861;
+  color: #fff;
 }
 
 .sticky .navbar .mobile-menu-btn .toggler-icon {
@@ -2074,7 +2074,7 @@ ol {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: #ffffff;
+  background-color: #fff;
   z-index: 0;
 }
 
