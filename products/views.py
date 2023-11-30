@@ -95,4 +95,3 @@ def color_page(request, slug):
             'color': color,
         }
     )
-

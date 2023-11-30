@@ -1,6 +1,9 @@
 from django.contrib import admin
 from .models import ColorCategory, NumberCategory, SizeCategory, TypeCategory, ProductsPost, Comment
 
+class ColorCategoryAdmin(admin.ModelAdmin):
+    list_display = ['id', 'color']
+    prepopulated_fields = {'slug': ('color', )}
 
 class ColorCategoryAdmin(admin.ModelAdmin):
     list_display = ['id', 'color']
@@ -18,13 +21,9 @@ class TypeCategoryAdmin(admin.ModelAdmin):
     list_display = ['id', 'type']
     prepopulated_fields = {'slug': ('type',)}
 
-
 admin.site.register(ProductsPost)
 admin.site.register(Comment)
 admin.site.register(ColorCategory, ColorCategoryAdmin)
 admin.site.register(NumberCategory, NumberCategoryAdmin)
 admin.site.register(SizeCategory, SizeCategoryAdmin)
 admin.site.register(TypeCategory, TypeCategoryAdmin)
-
-
-
