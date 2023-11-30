@@ -11,8 +11,8 @@ class ProductsList(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(ProductsList, self).get_context_data()
-        context['type'] = TypeCategory.objects.all()
-        context['color'] = ColorCategory.objects.all()
+        context['types'] = TypeCategory.objects.all()
+        context['colors'] = ColorCategory.objects.all()
         return context
 
 class ProductsDetail(DetailView):
@@ -21,8 +21,8 @@ class ProductsDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ProductsDetail, self).get_context_data()
-        context['type'] = TypeCategory.objects.all()
-        context['color'] = ColorCategory.objects.all()
+        context['types'] = TypeCategory.objects.all()
+        context['colors'] = ColorCategory.objects.all()
         context['comment_form'] = CommentForm
         return context
 
@@ -65,27 +65,34 @@ def your_form_submission_view(request):
 
 def type_page(request, slug):
     type = TypeCategory.objects.get(slug=slug)
-    post_list = type.post_set.all()
+    # tags = request.GET.getlist('tags')
+
+    # if tags:
+    #     products = ProductsPost.objects.filter(type=type, tags__name__in=tags).distinct()
+    # else:
+    #     products = ProductsPost.objects.filter(type=type)
 
     return render(
         request,
         'products/productspost_list.html',
         {
-            'post_list' : post_list,
-            'type' : type,
+            #'object_list': products,
+            'object_list': ProductsPost.objects.filter(type=type),
+            'types': TypeCategory.objects.all(),
+            'type': type,
         }
     )
 
 def color_page(request, slug):
     color = ColorCategory.objects.get(slug=slug)
-    post_list = ProductsPost.objects.filter(color=color)
 
-    return render (
+    return render(
         request,
         'products/productspost_list.html',
         {
-            'post_list' : post_list,
-            'colors' : ColorCategory.objects.all()
+            'object_list': ProductsPost.objects.filter(color=color),
+            'colors': ColorCategory.objects.all(),
+            'color': color,
         }
     )
 

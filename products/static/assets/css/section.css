@@ -25,6 +25,10 @@
   font-weight: 700;
 }
 
+.section-title h2 a:hover {
+    color: #EBF0E9;
+  }
+
 .section-title p {
   font-size: 16px;
   line-height: 28px;
