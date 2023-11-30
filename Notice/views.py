@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-def notice(request):
+def index(request):
     return render(
         request,
         'notice/index.html'
