@@ -1,35 +1,235 @@
 <!DOCTYPE html>
+<html class="no-js" lang="ko">
 {% load static %}
-<html lang="ko">
-
 <head>
-  <meta charset="utf-8" />
-  <link rel="icon" href="/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <title>OFDS</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A400%2C500%2C600%2C700"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C500%2C600%2C700"/>
-  <link rel="stylesheet" href="{% static 'assets/css/navs.css' %}">
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Main | OFDS</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'main/bootstrap/css/animate.css' %}" />
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="{% static 'main/bootstrap/css/main.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'main/bootstrap/css/animate.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'main/bootstrap/css/bootstrap.min.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'main/bootstrap/css/glightbox.min.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'main/bootstrap/css/LineIcons.3.0.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'main/bootstrap/css/tiny-slider.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'main/bootstrap/fonts/pretendard.css' %}" media="screen">
+
 </head>
 
 <body>
-    <div class="navs-SQH">
-      <div class="logo-RGD">
-        <img class="logoimage-YEM" src="./assets/logoimage.png"/>
-        <p class="logotext-dWh">duksung Jacket</p>
-      </div>
-      <div class="nav-links-hFf">
-        <p class="notice-Nsb">Notice</p>
-        <div class="products-usX">
-          <p class="products-s3f">Products</p>
-          <img class="akar-icons-chevron-down-z8H" src="./assets/akar-icons-chevron-down.png"/>
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
         </div>
-        <p class="review-7Cu">Review</p>
-        <p class="qa-qub">q&amp;a</p>
-      </div>
-      <div class="loginbutton-nZw">Login</div>
     </div>
+    <!-- /End Preloader -->
+
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <!-- Start Navbar -->
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="index.html">
+                                <img src="{% static 'main/bootstrap/images/t_logo_white.png' %}" alt="Logo" style="width:250px;">
+                            </a>
+                            <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                    <li class="nav-item">
+                                        <a href="#" class="active" aria-label="Toggle navigation" style="font-weight:700; text-decoration:underline;">Notice</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
+                                            data-bs-target="#submenu-1-1" aria-controls="navbarSupportedContent"
+                                            aria-expanded="false" aria-label="Toggle navigation">Products</a>
+                                        <ul class="sub-menu collapse" id="submenu-1-1">
+                                            <li class="nav-item"><a href="about-us.html">무궁화</a></li>
+                                            <li class="nav-item"><a href="pricing.html">클래식</a></li>
+                                            <li class="nav-item"><a href="signin.html">Products C</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="about-us.html" aria-label="Toggle navigation">Review</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="about-us.html" aria-label="Toggle navigation">Q&A</a>
+                                    </li>
+                                </ul>
+                            </div> <!-- navbar collapse -->
+                            <div class="button">
+                                <a href="signup.html" class="btn">Login</a>
+                            </div>
+                        </nav>
+                        <!-- End Navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- End Header Area -->
+
+    <!-- Start Hero Area -->
+    <section class="hero-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 col-md-12 col-12">
+                    <div class="hero-content">
+                         <img src="{% static 'main/bootstrap/images/main_text.png' %}">
+                        <div class="button wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
+                            <a href="about-us.html" class="btn ">Discover More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-12">
+                    <div class="hero-image">
+                        <img class="main-image" src="assets/images/hero/hero-image.png" alt="#">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Hero Area -->
+
+
+    <!-- Start Footer Area -->
+    <footer class="footer section">
+        <!-- Start Copyright Area -->
+        <div class="copyright-area">
+            <div class="container">
+                <div class="inner-content">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <p class="copyright-text">© 2023 OFDS - All Rights Reserved</p>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <p class="copyright-owner">Designed and Developed by 김민지 윤예원 이송미 장은선 편도나<br>
+                                Duksung Women's University Computer Engineering <Internet Programming> Project Team</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Copyright Area -->
+    </footer>
+    <!--/ End Footer Area -->
+
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+
+    <!-- ========================= JS here ========================= -->
+    <script src="{% static 'main/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'main/bootstrap/js/count-up.min.js' %}"></script>
+    <script src="{% static 'main/bootstrap/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'main/bootstrap/js/imagesloaded.min.js' %}"></script>
+    <script src="{% static 'main/bootstrap/js/isotope.min.js' %}"></script>
+    <script src="{% static 'main/bootstrap/js/main.js' %}"></script>
+    <script src="{% static 'main/bootstrap/js/tiny-slider.js' %}"></script>
+    <script src="{% static 'main/bootstrap/js/wow.min.js' %}"></script>
+
+    <script>
+
+
+        //========= testimonial
+        tns({
+            container: '.testimonial-slider',
+            items: 3,
+            slideBy: 'page',
+            autoplay: false,
+            mouseDrag: true,
+            gutter: 0,
+            nav: true,
+            controls: false,
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                540: {
+                    items: 1,
+                },
+                768: {
+                    items: 2,
+                },
+                992: {
+                    items: 2,
+                },
+                1170: {
+                    items: 3,
+                }
+            }
+        });
+
+        //====== counter up
+        var cu = new counterUp({
+            start: 0,
+            duration: 2000,
+            intvalues: true,
+            interval: 100,
+            append: " ",
+        });
+        cu.start();
+
+        //========= glightbox
+        GLightbox({
+            'href': 'https://www.youtube.com/watch?v=r44RKWyfcFw&fbclid=IwAR21beSJORalzmzokxDRcGfkZA1AtRTE__l5N4r09HcGS5Y6vOluyouM9EM',
+            'type': 'video',
+            'source': 'youtube', //vimeo, youtube or local
+            'width': 900,
+            'autoplayVideos': true,
+        });
+
+        //============== isotope masonry js with imagesloaded
+        imagesLoaded('#container', function () {
+            var elem = document.querySelector('.grid');
+            var iso = new Isotope(elem, {
+                // options
+                itemSelector: '.grid-item',
+                masonry: {
+                    // use outer width of grid-sizer for columnWidth
+                    columnWidth: '.grid-item'
+                }
+            });
+
+            let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+            filterButtons.forEach(e =>
+                e.addEventListener('click', () => {
+
+                    let filterValue = event.target.getAttribute('data-filter');
+                    iso.arrange({
+                        filter: filterValue
+                    });
+                })
+            );
+        });
+
+    </script>
 </body>
 
 </html>
