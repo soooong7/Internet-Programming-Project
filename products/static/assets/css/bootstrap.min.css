@@ -39,6 +39,13 @@
     box-sizing: border-box
 }
 
+@font-face {
+  font-family: 'Pretendard';
+  src: url('C:\DSJ_Project\Internet_Programming_Project\products\static\assets\fonts');
+  font-weight: 400;
+  font-style: normal;
+}
+
 @media (prefers-reduced-motion:no-preference) {
     :root {
         scroll-behavior: smooth
@@ -47,7 +54,7 @@
 
 body {
     margin: 0;
-    font-family: var(--bs-font-sans-serif);
+    font-family: 'Pretendard';
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -239,12 +246,12 @@ sup {
 }
 
 a {
-    color: #0d6efd;
+    color: #617861;
     text-decoration: underline
 }
 
 a:hover {
-    color: #0a58ca
+    color: #ffffff
 }
 
 a:not([href]):not([class]),
@@ -3751,14 +3758,14 @@ fieldset:disabled .btn {
 }
 
 .btn-outline-dark {
-    color: #212529;
-    border-color: #212529
+    color: #617861;
+    border-color: #617861
 }
 
 .btn-outline-dark:hover {
-    color: #fff;
-    background-color: #212529;
-    border-color: #212529
+    color: #ffffff;
+    background-color: #617861;
+    border-color: #617861
 }
 
 .btn-check:focus+.btn-outline-dark,
@@ -3771,9 +3778,9 @@ fieldset:disabled .btn {
 .btn-outline-dark.active,
 .btn-outline-dark.dropdown-toggle.show,
 .btn-outline-dark:active {
-    color: #fff;
-    background-color: #212529;
-    border-color: #212529
+    color: #ffffff;
+    background-color: #617861;
+    border-color: #617861
 }
 
 .btn-check:active+.btn-outline-dark:focus,
@@ -3803,6 +3810,12 @@ fieldset:disabled .btn {
 .btn-link.disabled,
 .btn-link:disabled {
     color: #6c757d
+}
+/*추가*/
+.btn-gap {
+    display: flex;
+    text-align: center;
+    gap: 20px;
 }
 
 .btn-group-lg>.btn,
@@ -5226,7 +5239,7 @@ fieldset:disabled .btn {
 .badge {
     display: inline-block;
     padding: .35em .65em;
-    font-size: .75em;
+    font-size: .90em;
     font-weight: 700;
     line-height: 1;
     color: #fff;
@@ -8131,7 +8144,7 @@ fieldset:disabled .btn {
 }
 
 .bg-dark {
-    background-color: #212529 !important
+    background-color: #617861 !important
 }
 
 .bg-body {
