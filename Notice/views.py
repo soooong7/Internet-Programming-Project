@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
-def index(request):
+def notice(request):
     return render(
         request,
-        'main/index.html'
+        'notice/index.html'
     )
