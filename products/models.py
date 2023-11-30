@@ -1,5 +1,5 @@
+from django.contrib.auth.models import User
 from django.db import models
-
 
 class TypeCategory(models.Model):
     type = models.CharField(max_length=50, unique=True)
@@ -14,42 +14,32 @@ class TypeCategory(models.Model):
     class Meta:
         verbose_name_plural = 'TypeCategories'
 
-
 class ColorCategory(models.Model):
-    color = models.CharField(max_length=50, unique=True)
+    color = models.CharField(max_length= 50, unique=True)
     slug = models.SlugField(max_length=200, unique=True, allow_unicode=True)
-
     def __str__(self):
         return self.color
 
     def get_absolute_url(self):
-        return f'/productes/color/{self.slug}/'
-
+        return f'/products/color/{self.slug}/'
     class Meta:
         verbose_name_plural = 'ColorCategories'
 
-
 class SizeCategory(models.Model):
-    size = models.CharField(max_length=50, unique=True)
+    size = models.CharField(max_length= 50, unique=True)
     slug = models.SlugField(max_length=200, unique=True, allow_unicode=True)
-
     def __str__(self):
         return self.size
-
     class Meta:
         verbose_name_plural = 'SizeCategories'
-
 
 class NumberCategory(models.Model):
     quantity = models.IntegerField()
     slug = models.SlugField(max_length=200, unique=True, allow_unicode=True)
-
     def __str__(self):
         return str(self.quantity)
-
     class Meta:
         verbose_name_plural = 'NumberCategories'
-
 
 class ProductsPost(models.Model):
     # 제품명
@@ -64,4 +54,17 @@ class ProductsPost(models.Model):
     color = models.ForeignKey(ColorCategory, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
+        return str(self.name)
+
+    def get_absolute_url(self):
         return f'/products/{self.pk}/'
+
+class Comment(models.Model):
+    post = models.ForeignKey(ProductsPost, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    modified_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.author}::{self.content}'
