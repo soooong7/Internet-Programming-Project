@@ -1,0 +1,161 @@
+ .auto-group-htv1-bTy {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    padding: 4.3rem 16.6rem 6.9rem 24.6rem;
+    width: 100%;
+
+    .noticetitle-6vX {
+      align-items: flex-end;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      margin: 0rem 74.4rem 4.3rem 55.3rem;
+      width: calc(100% - 129.7rem);
+
+      .qa-dQf {
+        color: #617861;
+        flex-shrink: 0;
+        font-family: Inter, 'Source Sans Pro';
+        font-size: 3.2rem;
+        font-weight: 500;
+        line-height: 1.2125;
+        margin: 0rem 1.6rem 1.1rem 0rem;
+        text-transform: capitalize;
+        white-space: nowrap;
+      }
+      .item--YnX {
+        color: #617861;
+        flex-shrink: 0;
+        font-family: Inter, 'Source Sans Pro';
+        font-size: 7rem;
+        font-weight: 800;
+        line-height: 1.2125;
+        text-transform: capitalize;
+        white-space: nowrap;
+      }
+    }
+    .group-234-fs9 {
+      border-radius: 2rem;
+      flex-shrink: 0;
+      margin-bottom: 2.9rem;
+      width: 100%;
+
+      .rectangle-2-E9Z {
+        background-color: #617861;
+        border-radius: 2rem;
+        height: 1rem;
+        width: 100%;
+      }
+    }
+    .auto-group-qwjm-91d {
+      align-items: flex-start;
+      display: flex;
+      flex-shrink: 0;
+      margin: 0rem 0rem 4.45rem 1.551rem;
+      width: calc(100% - 1.5511rem);
+
+      .item--fkf {
+        align-items: center;
+        color: #617861;
+        display: flex;
+        flex-shrink: 0;
+        font-family: Inter, 'Source Sans Pro';
+        font-size: 5rem;
+        font-weight: 500;
+        justify-content: center;
+        line-height: 1.2125;
+        margin-right: 5.0489rem;
+        text-transform: capitalize;
+        white-space: nowrap;
+      }
+      .rectangle-7-Nf5 {
+        background-color: #ffffff;
+        border: solid 0.3rem #617861;
+        border-radius: 2rem;
+        box-sizing: border-box;
+        flex-shrink: 0;
+        height: 18.8rem;
+        margin-top: 0.5rem;
+        width: 138.1rem;
+      }
+    }
+    .auto-group-gryk-gQs {
+      align-items: flex-start;
+      display: flex;
+      flex-shrink: 0;
+      margin: 0rem 0rem 3.4rem 1.518rem;
+      width: calc(100% - 1.5179rem);
+
+      .item--1T9 {
+        align-items: center;
+        color: #617861;
+        display: flex;
+        flex-shrink: 0;
+        font-family: Inter, 'Source Sans Pro';
+        font-size: 5rem;
+        font-weight: 500;
+        justify-content: center;
+        line-height: 1.2125;
+        margin-right: 5.0821rem;
+        text-transform: capitalize;
+        white-space: nowrap;
+      }
+      .rectangle-8-XgP {
+        background-color: #ffffff;
+        border: solid 0.3rem #617861;
+        border-radius: 2rem;
+        box-sizing: border-box;
+        flex-shrink: 0;
+        height: 31.5rem;
+        margin-top: 0.15rem;
+        width: 138.1rem;
+      }
+    }
+    .auto-group-aocf-3Pq {
+      align-items: center;
+      display: flex;
+      flex-shrink: 0;
+      height: 6rem;
+      margin-left: 117.1rem;
+      width: calc(100% - 117.1rem);
+
+      .group-10-MfR {
+        align-items: center;
+        background-color: #617861;
+        border-radius: 5rem;
+        color: #ffffff;
+        display: flex;
+        flex-shrink: 0;
+        font-family: Inter, 'Source Sans Pro';
+        font-size: 3rem;
+        font-weight: 400;
+        height: 100%;
+        justify-content: center;
+        line-height: 1.2125;
+        margin-right: 1.7rem;
+        text-transform: capitalize;
+        white-space: nowrap;
+        width: 16rem;
+      }
+      .group-11-32T {
+        align-items: center;
+        background-color: #617861;
+        border-radius: 5rem;
+        color: #ffffff;
+        display: flex;
+        flex-shrink: 0;
+        font-family: Inter, 'Source Sans Pro';
+        font-size: 3rem;
+        font-weight: 400;
+        height: 100%;
+        justify-content: center;
+        line-height: 1.2125;
+        text-transform: capitalize;
+        white-space: nowrap;
+        width: 16rem;
+      }
+    }
+  }
