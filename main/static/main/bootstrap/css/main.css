@@ -1327,7 +1327,7 @@ ol {
 .button .btn {
   display: inline-block;
   text-transform: capitalize;
-  font-size: 15px;
+  font-size: 30px;
   font-weight: 500;
   padding: 6px 25px;
   background-color: #617861;
@@ -1368,8 +1368,8 @@ ol {
 }
 
 .button .btn:hover {
-  color: #fff;
-  background-color: #081828;
+  /* color: #fff;
+  background-color: #081828; */
 }
 
 .button {
@@ -1491,6 +1491,7 @@ ol {
   width: 100%;
   left: 0;
   top: 0;
+  height:80px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -1830,17 +1831,17 @@ ol {
 }
 
 .navbar-nav .nav-item:hover a {
-  color: #617861;
+  color: #fff;
   text-decoration:underline;
 }
 
 .sticky .navbar-nav .nav-item:hover a {
-  color: #617861;
+  color: #fff;
 }
 
 .navbar-nav .nav-item a {
   font-size: 18px;
-  color: #617861;
+  color: #fff;
   -webkit-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
   position: relative;
@@ -1867,7 +1868,7 @@ ol {
 }
 
 .navbar-nav .nav-item a.active {
-  color: #617861;
+  color: #fff;
 }
 
 .navbar-nav .nav-item a.dd-menu::after {
@@ -2027,7 +2028,7 @@ ol {
 .header .button .btn {
   background-color: #fff;
   color: #617861;
-  font-weight: 700;
+  font-weight: 600;
   font-size:18px;
 }
 
@@ -2076,6 +2077,7 @@ ol {
   background-repeat: no-repeat;
   background-color: #fff;
   z-index: 0;
+  padding-top:100px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -2107,7 +2109,7 @@ ol {
   position: relative;
   z-index: 1;
   text-align: left;
-  padding: 240px 0 140px 0;
+  padding: 120px 0 50px 0;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -2215,6 +2217,7 @@ ol {
 .hero-area .hero-image {
   height: 100%;
   width: 100%;
+  margin-top:50px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
@@ -5039,7 +5042,7 @@ blockquote span {
   background-color: #617861;
   position: relative;
   padding-bottom: 0;
-  padding-top: 0
+  padding-top: 0;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -5260,7 +5263,7 @@ blockquote span {
   border-top: 1px solid rgba(238, 238, 238, 0.288);
   padding-top: 30px;
   padding-bottom: 30px;
-  margin-top: 80px;
+  margin-top: 0px;
 }
 
 @media (max-width: 767px) {

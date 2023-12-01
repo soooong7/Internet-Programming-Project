@@ -2027,7 +2027,7 @@ ol {
 .header .button .btn {
   background-color: #fff;
   color: #617861;
-  font-weight: 700;
+  font-weight: 600;
   font-size:18px;
 }
 
@@ -2109,6 +2109,7 @@ ol {
   z-index: 1;
   text-align: left;
   padding: 240px 0 140px 0;
+  width:80%;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -4666,11 +4667,12 @@ blockquote span {
 }
 
 .accordion-item .accordion-button .title {
-  font-size: 16px;
+  font-size: 18px;
   position: relative;
   font-weight: 600;
   float: left;
   line-height: 25px;
+  width:75%;
 }
 
 .accordion-item .accordion-button .title .icon_notice {
@@ -4679,6 +4681,10 @@ blockquote span {
   display:inline-block;
   margin-right:12px;
 }
+
+
+
+
 
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -4754,7 +4760,7 @@ blockquote span {
 }
 
 .accordion-item {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   -webkit-box-shadow: 0px 0px 20px #00000007;
           box-shadow: 0px 0px 20px #00000007;
   border-radius: 15px;

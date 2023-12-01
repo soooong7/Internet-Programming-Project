@@ -718,7 +718,8 @@ progress {
     max-width: 100%;
     padding-right: calc(var(--bs-gutter-x)/ 2);
     padding-left: calc(var(--bs-gutter-x)/ 2);
-    margin-top: var(--bs-gutter-y)
+    margin-top: var(--bs-gutter-y);
+    margin 0 auto;
 }
 
 .col {
@@ -4431,7 +4432,8 @@ fieldset:disabled .btn {
     align-items: center;
     justify-content: space-between;
     padding-top: .5rem;
-    padding-bottom: .5rem
+    padding-bottom: .5rem;
+    height:80px;
 }
 
 .navbar>.container,
