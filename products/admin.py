@@ -1,4 +1,5 @@
 from .models import ColorCategory, NumberCategory, SizeCategory, TypeCategory, ProductsPost, Comment
+from django.contrib import admin
 
 class ColorCategoryAdmin(admin.ModelAdmin):
     list_display = ['id', 'color']
