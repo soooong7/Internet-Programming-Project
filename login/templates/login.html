@@ -13,7 +13,7 @@
 <body>
 
 {% block content %}
-   <div id="container" class="container">
+    <div id="container" class="container">
         <!-- FORM SECTION (폼 섹션) -->
         <div class="row">
             <!-- SIGN UP (가입하기) -->
@@ -21,27 +21,61 @@
                 <div class="form-wrapper align-items-center">
                     <div class="form sign-up">
 
-                        <!-- 회원가입 폼 -->
-                        <form class="input-group" method="post" action="{% url 'signup' %}">
-                            {% csrf_token %}
-                            <div class="input-group">
-                                <i class='bx bxs-user'></i>
-                                <input type="text" name="username" placeholder="Username">
-                            </div>
-                            <div class="input-group">
-                                <i class='bx bx-mail-send'></i>
-                                <input type="email" name="email" placeholder="Email">
-                            </div>
-                            <div class="input-group">
-                                <i class='bx bxs-lock-alt'></i>
-                                <input type="password" name="password1" placeholder="Password">
-                            </div>
-                            <div class="input-group">
-                                <i class='bx bxs-lock-alt'></i>
-                                <input type="password" name="password2" placeholder="Confirm password">
-                            </div>
-                            <button type="submit">Sign up</button>
-                        </form>
+<!-- 회원가입 폼 -->
+<form class="input-group" method="post" action="{% url 'signup' %}" onsubmit="return checkForm()">
+    {% csrf_token %}
+
+    <div class="input-group">
+        <i class='bx bxs-user'></i>
+        <input type="text" name="username" placeholder="Username">
+    </div>
+
+    <div class="input-group">
+        <i class='bx bx-mail-send'></i>
+        <input type="email" name="email" id="emailInput" placeholder="Email">
+    </div>
+
+    <div class="input-group">
+        <i class='bx bxs-lock-alt'></i>
+        <input type="password" name="password1" placeholder="Password">
+    </div>
+    <div class="input-group">
+        <i class='bx bxs-lock-alt'></i>
+        <input type="password" name="password2" placeholder="Confirm password">
+    </div>
+    <button type="submit">Sign up</button>
+</form>
+
+<script>
+function checkForm() {
+    var emailInput = document.getElementById('emailInput');
+    var emailValue = emailInput.value.trim();
+
+    // 이메일 도메인 검사
+    if (!emailValue.includes('@duksung.ac.kr')) {
+        alert("이메일 주소에 @duksung.ac.kr을 포함해 주세요.");
+        return false;
+    }
+
+    // 비밀번호 일치 여부 확인
+    var password1 = document.getElementsByName('password1')[0].value;
+    var password2 = document.getElementsByName('password2')[0].value;
+    if (password1 !== password2) {
+        alert("비밀번호가 일치하지 않습니다.");
+        return false;
+    }
+
+    // 비밀번호 길이 검사
+    if (password1.length < 8) {
+        alert("비밀번호는 최소 8자 이상이어야 합니다.");
+        return false;
+    }
+
+    return true;
+}
+</script>
+
+
 
                         <p>
                             <span>
@@ -67,12 +101,12 @@
 
                             <div class="input-group">
                                 <i class='bx bxs-user'></i>
-                                {{ form.username }}
+                                <input type="text" name="username" placeholder="Username">
                             </div>
 
                             <div class="input-group">
                                 <i class='bx bxs-lock-alt'></i>
-                                {{ form.password }}
+                                <input type="password" name="password" placeholder="Password">
                             </div>
 
                             <button type="submit">
@@ -80,11 +114,12 @@
                             </button>
                         </form>
 
+
                         <p>
-{#                            비밀번호를 잊어버렸을 경우 (추후 개발) #}
-{#                            <b>#}
-{#                                Forgot password?#}
-{#                            </b>#}
+                            {#                            비밀번호를 잊어버렸을 경우 (추후 개발) #}
+                            {#                            <b>#}
+                            {#                                Forgot password?#}
+                            {#                            </b>#}
 
                         </p>
                         <p>

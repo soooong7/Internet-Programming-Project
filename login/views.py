@@ -25,6 +25,8 @@ def login_view(request):
 
     return render(request, 'login.html', {'form': form})
 
+from django.shortcuts import render, redirect
+
 def signup(request):
     """
     회원가입 페이지를 렌더링하고, 유효한 회원가입 시 로그인 페이지로 리다이렉트하는 뷰 함수
@@ -38,4 +40,5 @@ def signup(request):
     else:
         form = CustomUserCreationForm()
 
+    # 유효하지 않은 경우, 현재 페이지에 머무르고 오류 메시지를 템플릿에 전달
     return render(request, 'login.html', {'form': form})
