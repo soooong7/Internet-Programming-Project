@@ -31,21 +31,15 @@
                 </div>
             </div>
 
-<!--            <div class="row" style="margin-bottom: 10px;">-->
-<!--                <div class="col-md-6">-->
-<!--                <i class="fa-solid fa-star fa-2xl fa-fade" style="color: #617861;"></i>-->
-<!--                </div>-->
-<!--            </div>-->
-
             <!-- 카테고리 -->
             <div class="row text-center" style="margin-bottom: 20px;">
                 <!-- 타입 카테고리 버튼-->
                 <div class="col-md-6">
                     <i class="fa-solid fa-tag fa-2xl" style="color: #617861;"></i>
-                    <div class="btn-group btn-gap" role="group" aria-label="Basic checkbox toggle button group">
+                    <div class="btn-group btn-gap" role="group" aria-label="Basic radio toggle button group">
                         {% for t in types %}
                             <div>
-                                <input type="checkbox" class="btn-check" id="btncheck{{ t.id }}" autocomplete="off">
+                                <input type="radio" class="btn-check" id="btncheck{{ t.id }}" autocomplete="off">
                                 <label class="btn btn-outline-dark" for="btncheck{{ t.id }}" style="border-color: #617861;">
                                     <a href="{{ t.get_absolute_url }}">{{ t }}</a>
                                 </label>
@@ -74,6 +68,7 @@
                 <label class="btn btn-outline-dark" style="border-color: #617861;">
                     <a href="/products/">ALL</a>
                 </label>
+            </div>
 
             <!-- Start Single Product -->
             <div class="row">
