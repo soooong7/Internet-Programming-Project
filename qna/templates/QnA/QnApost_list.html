@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>QnA List</title>
+    <link rel="stylesheet" href="{% static 'qna/bootstrap/css/bootstrap.min.css' %}" media="screen">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A400%2C500%2C600%2C700"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C500%2C600%2C700"/>
+    <link href="{% static 'qna/bootstrap/css/navs.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'qna/bootstrap/css/sectionTitle.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'qna/bootstrap/css/LineIcons.3.0.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'qna/bootstrap/css/animate.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'qna/bootstrap/css/tiny-slider.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'qna/bootstrap/css/glightbox.min.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'qna/bootstrap/css/main.css' %}" rel="stylesheet" media="screen">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="index.html">
+        <img src="{% static 'qna/bootstrap/images/t_logo_green.png' %}" alt="Logo" style="width:250px;">
+    </a>
+    <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="toggler-icon"></span>
+        <span class="toggler-icon"></span>
+        <span class="toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+        <ul id="nav" class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a href="index.html" class="active" aria-label="Toggle navigation" style="font-weight:700; text-decoration:underline;">Notice</a>
+            </li>
+            <li class="nav-item">
+                <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
+                   data-bs-target="#submenu-1-1" aria-controls="navbarSupportedContent"
+                   aria-expanded="false" aria-label="Toggle navigation">Products</a>
+                <ul class="sub-menu collapse" id="submenu-1-1">
+                    <li class="nav-item"><a href="about-us.html">무궁화</a></li>
+                    <li class="nav-item"><a href="pricing.html">클래식</a></li>
+                    <li class="nav-item"><a href="signin.html">Products C</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="about-us.html" aria-label="Toggle navigation">Review</a>
+            </li>
+            <li class="nav-item">
+                <a href="about-us.html" aria-label="Toggle navigation">Q&A</a>
+            </li>
+        </ul>
+    </div> <!-- navbar collapse -->
+    <div class="button">
+        <a href="signup.html" class="btn">Login</a>
+    </div>
+</nav>
+
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-8 col-lg-9">
+            <h1>QnA</h1>
+            {% for p in post_list %}
+            <div class="card mb-4">
+                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg"
+                                  alt="..."/></a>
+                <div class="card-body">
+                    <div class="small text-muted"></div>
+                    <h2 class="card-title">{{ p.title }}</h2>
+                    <p class="card-text">{{ p.question }}</p>
+                    <a class="btn btn-primary" href="{% url 'qna_detail' %}">Read more →</a>
+                </div>
+                 <div class="card-footer text-muted">
+                        Posted on {{p.created_at}} by
+                        <a href="#">Start Bootstrap</a>
+                 </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        </div>
+        <div class="col-md-4 col-lg-3">
+            <div class="card mb-4">
+                <div class="card-header">Search</div>
+                <div class="card-body">
+                    <div class="input-group">
+                        <input class="form-control" type="text" placeholder="Enter search term..."
+                               aria-label="Enter search term..." aria-describedby="button-search"/>
+                        <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">Categories</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <ul class="list-unstyled mb-0">
+                                <li><a href="#!">Web Design</a></li>
+                                <li><a href="#!">HTML</a></li>
+                                <li><a href="#!">Freebies</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6">
+                            <ul class="list-unstyled mb-0">
+                                <li><a href="#!">JavaScript</a></li>
+                                <li><a href="#!">CSS</a></li>
+                                <li><a href="#!">Tutorials</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="#" class="scroll-top">
+    <i class="lni lni-chevron-up"></i>
+</a>
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+<script src="./page-1/styles/QnAListJs/wow.min.js"></script>
+<script src="./page-1/styles/QnAListJs/tiny-slider.js"></script>
+<script src="./page-1/styles/QnAListJs/glightbox.min.js"></script>
+<script src="./page-1/styles/QnAListJs/count-up.min.js"></script>
+<script src="./page-1/styles/QnAListJs/main.js"></script>
+
+</body>
+</html>
