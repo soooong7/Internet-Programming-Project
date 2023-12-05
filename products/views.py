@@ -60,7 +60,6 @@ def type_page(request, slug):
         request,
         'products/productspost_list.html',
         {
-            # 'object_list': products,
             'object_list': ProductsPost.objects.filter(type=type),
             'types': TypeCategory.objects.all(),
             'type': type,
