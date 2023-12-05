@@ -48,10 +48,14 @@ class ProductsPost(models.Model):
     price = models.IntegerField()
     # 제품 사진
     image = models.ImageField(upload_to='products/images/%Y/%m/%d/', blank=True)
+    # 제품 상세 사진
+    detailimage = models.ImageField(upload_to='products/images/%Y/%m/%d/', blank=True)
+    # 제품 조회수
+    views = models.PositiveIntegerField(default=0)
 
     # 제품 태그, 카테고리
-    type = models.ManyToManyField(TypeCategory, blank=True)
-    color = models.ForeignKey(ColorCategory, null=True, on_delete=models.SET_NULL)
+    type = models.ManyToManyField(TypeCategory, blank=True) #다대다 (태그 기능)
+    color = models.ForeignKey(ColorCategory, null=True, on_delete=models.SET_NULL) #다대일 (카테고리 기능)
 
     def __str__(self):
         return str(self.name)
