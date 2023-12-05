@@ -61,29 +61,24 @@
                             <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                                 <ul id="nav" class="navbar-nav ms-auto">
                                     <li class="nav-item">
-                                        <a href="#" aria-label="Toggle navigation">Notice</a>
+                                        <a href="/notice/" aria-label="Toggle navigation">Notice</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
-                                            data-bs-target="#submenu-1-1" aria-controls="navbarSupportedContent"
-                                            aria-expanded="false" aria-label="Toggle navigation">Products</a>
-                                        <ul class="sub-menu collapse" id="submenu-1-1">
-                                            <li class="nav-item"><a href="about-us.html">무궁화</a></li>
-                                            <li class="nav-item"><a href="pricing.html">클래식</a></li>
-                                            <li class="nav-item"><a href="signin.html">Products C</a></li>
-                                        </ul>
+                                        <a href="/products/" aria-label="Toggle navigation">Products</a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <a href="about-us.html" aria-label="Toggle navigation">Review</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="about-us.html" aria-label="Toggle navigation">Q&A</a>
+                                        <a href="/qna/" aria-label="Toggle navigation">Q&A</a>
                                     </li>
                                 </ul>
-                            </div> <!-- navbar collapse -->
+                            </div>
                             <div class="button">
-                                <a href="signup.html" class="btn">Login</a>
+                                <!-- 로그인 상태 확인, 로그인 상태면 Logout 버튼 / 비로그인 상태면 Login 버튼-->
+                                {% if user.is_authenticated %}
+                                    <a href="/login/logout/" class="btn">Logout</a>
+                                {% else %}
+                                    <a href="/login/" class="btn">Login</a>
+                                {% endif %}
                             </div>
                         </nav>
                         <!-- End Navbar -->
@@ -95,14 +90,19 @@
     <!-- End Header Area -->
 
     <!-- Start Hero Area -->
-    <section class="hero-area">
+    <section class="hero-area" style="padding-top: 150px">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-5 col-md-12 col-12">
                     <div class="hero-content">
                          <img src="{% static 'main/bootstrap/images/main_text.png' %}" style="width:80%;">
                         <div class="button wow fadeInUp" data-wow-delay=".8s" style="border-radius:50px; visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
-                            <a href="#" class="btn" style="font-size:30px;"> 구매하러 가기 </a>
+                            <!-- 로그인 상태 확인, 로그인 시 products / 비로그인 시 login으로 이동-->
+                            {% if user.is_authenticated %}
+                                <a href="/products/" class="btn" style="font-size:30px;"> 구매하러 가기 </a>
+                            {% else %}
+                                <a href="/login/" class="btn" style="font-size:30px;"> 구매하러 가기 </a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -116,34 +116,6 @@
     </section>
     <!-- End Hero Area -->
 
-
-    <!-- Start Footer Area -->
-<!--    <footer class="footer section">-->
-<!--        &lt;!&ndash; Start Copyright Area &ndash;&gt;-->
-<!--        <div class="copyright-area">-->
-<!--            <div class="container">-->
-<!--                <div class="inner-content">-->
-<!--                    <div class="row">-->
-<!--                        <div class="col-lg-6 col-md-6 col-12">-->
-<!--                            <p class="copyright-text">© 2023 OFDS - All Rights Reserved</p>-->
-<!--                        </div>-->
-<!--                        <div class="col-lg-6 col-md-6 col-12">-->
-<!--                            <p class="copyright-owner">Designed and Developed by 김민지 윤예원 이송미 장은선 편도나<br>-->
-<!--                                Duksung Women's University Computer Engineering <Internet Programming> Project Team</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-        <!-- End Copyright Area -->
-    </footer>
-    <!--/ End Footer Area -->
-
-    <!-- ========================= scroll-top ========================= -->
-<!--    <a href="#" class="scroll-top">-->
-<!--        <i class="lni lni-chevron-up"></i>-->
-<!--    </a>-->
-
     <!-- ========================= JS here ========================= -->
     <script src="{% static 'main/bootstrap/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'main/bootstrap/js/count-up.min.js' %}"></script>
@@ -155,8 +127,6 @@
     <script src="{% static 'main/bootstrap/js/wow.min.js' %}"></script>
 
     <script>
-
-
         //========= testimonial
         tns({
             container: '.testimonial-slider',
