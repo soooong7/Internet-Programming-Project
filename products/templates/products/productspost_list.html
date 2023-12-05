@@ -3,126 +3,312 @@
 <html class="no-js" lang="ko">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Products</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <title>Products | OFDS</title>
 
     <script src="https://kit.fontawesome.com/e7c49d65e4.js" crossorigin="anonymous"></script>
     <!-- ========================= CSS  ========================= -->
-    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'assets/css/tiny-slider.css' %}" />
-    <link rel="stylesheet" href="{% static 'assets/css/LineIcons.3.0.css' %}" />
-    <link rel="stylesheet" href="{% static 'assets/css/glightbox.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
-    <link rel="stylesheet" href="{% static 'assets/css/section.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/pmain.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'assets/css/section.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'assets/css/glightbox.min.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'assets/css/LineIcons.3.0.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'assets/css/tiny-slider.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'assets/fonts/pretendard.css' %}" media="screen">
 </head>
 
 <body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- End Preloader -->
+
+    <!-- start header area -->
+    <header class="header navbar-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <!-- Start Navbar -->
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/main/">
+                                <img src="{% static 'assets/images/t_logo_green.png' %}" alt="Logo"
+                                     style="width:250px;">
+                            </a>
+                            <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                    <li class="nav-item">
+                                        <a href="/notice/" class="active" aria-label="Toggle navigation">Notice</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/products/" class="dd-menu collapsed" aria-label="Toggle navigation"
+                                        style="font-weight:700; text-decoration:underline;">Products</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/qna/" aria-label="Toggle navigation">Q&A</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="button">
+                                <!-- 로그인 상태 확인, 로그인 상태면 Logout 버튼 / 비로그인 상태면 Login 버튼-->
+                                {% if user.is_authenticated %}
+                                    <a href="/login/logout/" class="btn">Logout</a>
+                                {% else %}
+                                    <a href="/login/" class="btn">Login</a>
+                                {% endif %}
+                            </div>
+                        </nav>
+                        <!-- End Navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- End header area -->
+
     <!-- Start Product Area -->
     <section class="trending-product section" style="margin-top: 12px;">
         <div class="container">
 
+            <!-- 타이틀 -->
             <div class="row" style="margin-bottom: 100px;">
                 <div class="col-12">
                     <div class="section-title">
-                    <h3 class="wow zoomIn" data-wow-delay=".2s">Products</h3>
+                        <h3 class="wow zoomIn" data-wow-delay=".2s">Products</h3>
                         <h2 class="wow fadeInUp" data-wow-delay=".4s"><a href="/products/">덕성여대 학잠</a></h2>
                     </div>
                 </div>
             </div>
 
-            <!-- 카테고리 -->
-            <div class="row text-center" style="margin-bottom: 20px;">
-                <!-- 타입 카테고리 버튼-->
-                <div class="col-md-6">
-                    <i class="fa-solid fa-tag fa-2xl" style="color: #617861;"></i>
-                    <div class="btn-group btn-gap" role="group" aria-label="Basic radio toggle button group">
-                        {% for t in types %}
+            <div class="container">
+                <!-- 1행 -->
+                <div class="row" style="margin-bottom: 20px;">
+                    <!-- all (카테고리 설정X) 버튼 -->
+                    <div class="col-md-6">
+                        <label class="btn btn-outline-dark" style="border-color: #617861; width: 100%;">
+                            <a href="/products/">ALL</a>
+                        </label>
+                    </div>
+
+                    <!-- 제품 정렬 -->
+                    <div class="col-md-6">
+                        <form method="get" action="{% url 'productspost_list' %}">
+                            <select class="form-select" id="sort" name="sort" onchange="this.form.submit()">
+                                <option value="" {% if current_sort == '' %}selected{% endif %}>선택</option>
+                                <option value="low" {% if current_sort == 'low' %}selected{% endif %}>가격 낮은 순</option>
+                                <option value="high" {% if current_sort == 'high' %}selected{% endif %}>가격 높은 순</option>
+                                <option value="view" {% if current_sort == 'view' %}selected{% endif %}>조회순</option>
+                            </select>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <!-- 2행 -->
+                <div class="row text-left" style="margin-bottom: 20px;">
+                    <!-- 타입 카테고리 버튼-->
+                    <div class="col-md-6">
+                        <i class="fa-solid fa-tag fa-2xl" style="color: #617861;"></i>
+                        <div class="btn-group btn-gap" role="group" aria-label="Basic radio toggle button group">
+                            {% for t in types %}
                             <div>
                                 <input type="radio" class="btn-check" id="btncheck{{ t.id }}" autocomplete="off">
                                 <label class="btn btn-outline-dark" for="btncheck{{ t.id }}" style="border-color: #617861;">
                                     <a href="{{ t.get_absolute_url }}">{{ t }}</a>
                                 </label>
                             </div>
-                        {% endfor %}
+                            {% endfor %}
+                        </div>
                     </div>
-                </div>
 
-                <!-- 컬러 카테고리 버튼-->
-                <div class="col-md-6">
-                    <i class="fa-solid fa-palette fa-2xl" style="color: #617861;"></i>
-                    <div class="btn-group btn-gap" role="group" aria-label="Basic radio toggle button group">
-                        {% for c in colors %}
+                    <!-- 컬러 카테고리 버튼-->
+                    <div class="col-md-6">
+                        <i class="fa-solid fa-palette fa-2xl" style="color: #617861;"></i>
+                        <div class="btn-group btn-gap" role="group" aria-label="Basic radio toggle button group">
+                            {% for c in colors %}
                             <div>
-                                <input type="radio" class="btn-check" name="btnradio" id="btnradio{{ c.id }}" autocomplete="off">
+                                <input type="radio" class="btn-check" name="btnradio" id="btnradio{{ c.id }}"
+                                       autocomplete="off">
                                 <label class="btn btn-outline-dark" for="btnradio{{ c.id }}" style="border-color: #617861;">
                                     <a href="{{ c.get_absolute_url }}">{{ c }}</a>
                                 </label>
                             </div>
-                        {% endfor %}
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="row" style="margin-bottom: 10px;">
-                <label class="btn btn-outline-dark" style="border-color: #617861;">
-                    <a href="/products/">ALL</a>
-                </label>
             </div>
 
             <!-- Start Single Product -->
             <div class="row">
                 {% for p in object_list %}
-                    <div class="col-lg-3 col-md-6 col-12">
+                <div class="col-lg-3 col-md-6 col-12">
 
-                        <!-- 이미지, 구매 버튼 -->
-                        <div class="single-product">
-                            <div class="product-image">
-                                <img src="{{ p.image.url }}" width=400 height=300 alt="#">
-                                <div class="button">
-                                    <a href="{{ p.get_absolute_url }}" class="btn">구매하기</a>
-                                </div>
+                    <!-- 이미지, 구매 버튼 -->
+                    <div class="single-product">
+                        <div class="product-image">
+                            <img src="{{ p.image.url }}" width=400 height=300 alt="#">
+                            <div class="button">
+                                <a href="{{ p.get_absolute_url }}" class="btn">구매하기</a>
                             </div>
+                        </div>
 
-                            <div class="product-info">
-                                <!-- 태그 배지 -->
-                                {% if p.type.all %}
-                                    <span class="badge bg-dark">{{ p.type.all|join:", " }}</span>
-                                {% endif %}
-                                {% if p.color %}
-                                    <span class="badge bg-dark">{{ p.color }}</span>
-                                {% endif %}
+                        <div class="product-info">
+                            <!-- 태그 배지 -->
+                            {% if p.type.all %}
+                            <span class="badge bg-dark">{{ p.type.all|join:", " }}</span>
+                            {% endif %}
+                            {% if p.color %}
+                            <span class="badge bg-dark">{{ p.color }}</span>
+                            {% endif %}
 
                             <!-- 제품명 -->
-                                <h4 class="title">
-                                    <a href="추후작성"><i class="fa-solid fa-cart-shopping" style="color: #000000;"></i>{{ p.name }}</a>
-                                </h4>
+                            <h4 class="title">
+                                <a href="{{ p.get_absolute_url }}">{{ p.name }}</a>
+                            </h4>
 
                             <!-- 제품가격 -->
-                                <div class="price">
-                                    <span>{{ p.price }}<i class="fa-solid fa-won-sign fa-sm" style="color: #000000;"></i></span>
-                                </div>
-
+                            <div class="price">
+                                <span>{{ p.price }}<i class="fa-solid fa-won-sign fa-sm" style="color: #000000;"></i></span>
                             </div>
-                         </div>
+
+                        </div>
                     </div>
-                 {% endfor %}
+                </div>
+                {% endfor %}
             </div>
-            <!-- End Single Product -->
+        </div> <!-- End Single Product -->
 
-        </div>
-</section>
 
-    <!-- ========================= scroll-top ========================= -->
+        <!-- Start Footer Area -->
+        <footer class="footer section">
+            <div class="copyright-area">
+                <div class="container">
+                    <div class="inner-content">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <p class="copyright-text">© 2023 OFDS - All Rights Reserved</p>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <p class="copyright-owner">Designed and Developed by 김민지 윤예원 이송미 장은선 편도나<br>
+                                    Duksung Women's University Computer Engineering
+                                    Internet Programming Project Team
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--/ End Footer Area -->
+    </section>
+
+<!-- ========================= scroll-top ========================= -->
+
     <a href="#" class="scroll-top">
         <i class="fa-solid fa-up-long fa-beat" style="color: #ffffff;"></i>
     </a>
 
-    <!-- ========================= JS ========================= -->
+<!-- ========================= JS ========================= -->
     <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'assets/js/tiny-slider.js' %}"></script>
+    <script src="{% static 'assets/js/count-up.min.js' %}"></script>
     <script src="{% static 'assets/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'assets/js/imagesloaded.min.js' %}"></script>
+    <script src="{% static 'assets/js/isotope.min.js' %}"></script>
     <script src="{% static 'assets/js/main.js' %}"></script>
+    <script src="{% static 'assets/js/tiny-slider.js' %}"></script>
+    <script src="{% static 'assets/js/wow.min.js' %}"></script>
+
+<script>
+    //========= testimonial
+    tns({
+        container: '.testimonial-slider',
+        items: 3,
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        nav: true,
+        controls: false,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 1,
+            },
+            768: {
+                items: 2,
+            },
+            992: {
+                items: 2,
+            },
+            1170: {
+                items: 3,
+            }
+        }
+    });
+
+    //====== counter up
+    var cu = new counterUp({
+        start: 0,
+        duration: 2000,
+        intvalues: true,
+        interval: 100,
+        append: " ",
+    });
+    cu.start();
+
+    //========= glightbox
+    GLightbox({
+        'href': 'https://www.youtube.com/watch?v=r44RKWyfcFw&fbclid=IwAR21beSJORalzmzokxDRcGfkZA1AtRTE__l5N4r09HcGS5Y6vOluyouM9EM',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function () {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+</script>
 
 </body>
 
