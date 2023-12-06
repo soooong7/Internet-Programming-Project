@@ -8,7 +8,6 @@
 
 {% block styles %}
 <style>
-    /* Add custom styles here */
     body {
         background-color: #EBF0E9;
     }
@@ -31,11 +30,13 @@
 </style>
 {% endblock %}
 
-    <h1>질문 수정하기</h1>
-    <hr/>
-    <form method="post" enctype="multipart/form-data">{% csrf_token %}
-        {{ form | crispy }}
-        <br/>
-        <button type="submit" class="btn btn-primary float-right" style="background-color: #617861; color: #ffffff; border-color: #617861;">저장</button>
-    </form>
+<h1>질문 수정하기</h1>
+<hr/>
+<form method="post" enctype="multipart/form-data">{% csrf_token %}
+    {{ form | crispy }}
+    <br/>
+    <button type="submit" class="btn btn-primary float-right"
+            style="background-color: #617861; color: #ffffff; border-color: #617861;">저장
+    </button>
+</form>
 {% endblock %}

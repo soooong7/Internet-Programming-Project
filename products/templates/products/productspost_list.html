@@ -1,7 +1,6 @@
 {% extends 'products/base.html' %}
 
 {% block main_area %}
-    <!-- Start Product Area -->
     <section class="trending-product section" style="margin-top: 12px;">
         <div class="container">
 
@@ -21,8 +20,7 @@
                     <div class="col-md-12">
                         <div class="card bg-light">
                             <h5 class="card-header text-dark">
-                                <i class="fa-solid fa-magnifying-glass fa-fade" style="color: #617861;"></i> 찾으시는 제품을 검색해보세요!
-                            </h5>
+                                <i class="fa-solid fa-magnifying-glass fa-fade" style="color: #617861;"></i> 찾으시는 제품을 검색해보세요!</h5>
                             <div class="card-body">
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="기본, 16, 18, 한문, 블랙, 버건디" id="search-input">
@@ -36,6 +34,7 @@
 
             <div class="container">
                 <div class="row" style="margin-bottom: 20px;">
+
                     <!-- all (카테고리 설정X) 버튼 -->
                     <div class="col-md-6">
                         <label class="btn btn-outline-dark" style="border-color: #617861; width: 100%;">
@@ -54,6 +53,7 @@
                             </select>
                         </form>
                     </div>
+
                 </div>
             </div>
 
@@ -92,7 +92,6 @@
                 </div>
             </div>
 
-
             <!-- Start Single Product -->
             <div class="row">
                 {% for p in object_list %}
@@ -125,12 +124,13 @@
                             <div class="price">
                                 <span>{{ p.price }}<i class="fa-solid fa-won-sign fa-sm" style="color: #000000;"></i></span>
                             </div>
-
                         </div>
+
                     </div>
                 </div>
                 {% endfor %}
             </div>
-        </div> <!-- End Single Product -->
-
+            <!-- End Single Product -->
+        </div>
+    </section>
 {% endblock %}

@@ -19,6 +19,7 @@ class ProductsList(ListView):
         context['colors'] = ColorCategory.objects.all()
         return context
 
+    # 정렬 함수
     def get_queryset(self):
         queryset = super().get_queryset()
 
@@ -51,7 +52,6 @@ class ProductsDetail(DetailView):
         return context
 
 # 카테고리 필터 함수
-
 def type_page(request, slug):
     type = TypeCategory.objects.get(slug=slug)
 
@@ -98,7 +98,6 @@ def new_comment(request, pk):
         else:
             raise PermissionDenied
 
-
 class CommentUpdate(LoginRequiredMixin, UpdateView):
     model = Comment
     form_class = CommentForm
@@ -139,7 +138,8 @@ class PostSearch(ProductsList):
 
         return context
 
-# 구매페이지 함수
+
+# 구매 페이지 함수
 def your_form_submission_view(request):
     if request.method == 'POST':
 
