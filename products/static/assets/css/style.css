@@ -1,6 +1,15 @@
+@font-face {
+  font-family: 'Pretendard';
+  src: url('../fonts/pretendard.css');
+  font-weight: 400;
+  font-style: normal;
+}
 
 html {
-	font-size:62.5%;
+	font-family: 'Pretendard', sans-serif;
+    font-size: 50%; /* 62.5%에서 50%로 변경 */
+    margin: 10rem auto;
+    width: 80%; /* 전체 폭을 80%로 변경 */
 }
 * {
 	margin: 0;
@@ -9,17 +18,12 @@ html {
 ul, li {
 	list-style: none;
 }
-@font-face {
-  font-family: 'Pretendard';
-  src: url('../fonts/pretendard.css');
-  font-weight: 400;
-  font-style: normal;
-}
+
 input {
 	border: none;
 }
 body {
-  width: 192rem;
+  width: 153.6rem;
 }.item--z9F {
   width: 100%;
   overflow: hidden;
@@ -160,11 +164,11 @@ body {
   flex-shrink: 0;
 }
 .item--z9F .auto-group-nhgo-JS5 .auto-group-zcu1-1rH {
-  margin: 0rem 66.4rem 1.4rem 72.1rem;
+  margin: 0.1rem 66.4rem 1.4rem 72.1rem;
   box-sizing: border-box;
-  padding: 1.5rem 0.9rem 0.5rem 0.2rem;
-  width: calc(100% - 138.5rem);
-  font-size: 6.4rem;
+  padding: 1.3rem 1.7rem 0.6rem 0.6rem;
+  width: calc(100% - 90rem);
+  font-size: 5.12rem;
   font-weight: 800;
   line-height: 1.2125;
   text-transform: capitalize;
@@ -174,45 +178,32 @@ body {
   background-color: #ebf0e9;
   border-radius: 2rem;
   flex-shrink: 0;
+  text-align: center;
 }
 .item--z9F .auto-group-nhgo-JS5 .auto-group-v1w9-EDF {
-  margin: 0rem 9.5rem 2.7rem 0rem;
-  width: calc(100% - 9.5rem);
+  margin: 0rem 1rem 2.7rem 0rem;
+  width: calc(100% - 0rem);
   height: 89.5rem;
   display: flex;
   align-items: center;
   flex-shrink: 0;
 }
-.item--z9F .auto-group-nhgo-JS5 .auto-group-v1w9-EDF .auto-group-wmnj-u4V {
-  margin-right: 20.1rem;
-  width: 82.7rem;
-  height: 100%;
-  position: relative;
-  flex-shrink: 0;
-}
-.item--z9F .auto-group-nhgo-JS5 .auto-group-v1w9-EDF .auto-group-wmnj-u4V .rectangle-1-3Ah {
-  width: 82.6rem;
-  height: 80.6rem;
-  position: absolute;
-  left: 0;
-  top: 8.9rem;
-  background-color: #ffffff;
-  border-radius: 2rem;
-}
+
 .item--z9F .auto-group-nhgo-JS5 .auto-group-v1w9-EDF .auto-group-wmnj-u4V .navy-xoT {
-  width: 81.8rem;
-  height: 83.8rem;
-  position: absolute;
-  left: 0.9rem;
+  margin: 0rem 0rem 0rem 0rem;
+  width: 52rem;
+  height: 60rem;
+  position: relative;
+  left: 4rem;
   top: 0;
   object-fit: cover;
   vertical-align: top;
 }
 .item--z9F .auto-group-nhgo-JS5 .auto-group-v1w9-EDF .auto-group-mesx-HKw {
-  margin: 8.3rem 0rem 9.7rem 0rem;
+  margin: 11rem 0rem 0rem 16rem;
   width: 60.9rem;
-  height: calc(100% - 18rem);
-  flex-shrink: 0;
+  height: calc(100% - 10rem);
+  flex-shrink: 1;
 }
 .item--z9F .auto-group-nhgo-JS5 .auto-group-v1w9-EDF .auto-group-mesx-HKw .auto-group-yfmd-bLd {
   margin-bottom: 3.2rem;
@@ -270,7 +261,7 @@ body {
   border-radius: 2rem;
 }
 .item--z9F .auto-group-nhgo-JS5 .auto-group-v1w9-EDF .auto-group-mesx-HKw .auto-group-7nx3-qpd .item--WA5 {
-  margin: 0.1rem 20rem 0rem 0rem;
+  margin: 0.1rem 20rem 0rem -4rem;
   font-size: 3.2rem;
   font-weight: 100;
   line-height: 1.2125;
@@ -281,7 +272,7 @@ body {
   flex-shrink: 0;
 }
 .item--z9F .auto-group-nhgo-JS5 .auto-group-v1w9-EDF .auto-group-mesx-HKw .auto-group-7nx3-qpd .icondown-y3f {
-  margin: 1.8rem 0.5rem 1.8rem 31.6rem;
+  margin: 1.8rem 0.5rem 1.8rem 23rem;
   width: 4rem;
   height: 4rem;
   position: absolute;
@@ -325,7 +316,7 @@ select {
   border-radius: 2rem;
 }
 .item--z9F .auto-group-nhgo-JS5 .auto-group-v1w9-EDF .auto-group-mesx-HKw .auto-group-9gnx-nmo .item--6Xb {
-  margin: 0.2rem 19rem 0rem 0rem;
+  margin: 0.2rem 19rem 0rem -3rem;
   font-size: 3.2rem;
   font-weight: 100;
   line-height: 1.2125;
@@ -336,7 +327,7 @@ select {
   flex-shrink: 0;
 }
 .item--z9F .auto-group-nhgo-JS5 .auto-group-v1w9-EDF .auto-group-mesx-HKw .auto-group-9gnx-nmo .icondown-18m {
-  margin: 0.5rem 6.0rem 1.8rem 33.5rem;
+  margin: 0.5rem 6.0rem 1.8rem 25.5rem;
   margin-bottom: 0.1rem;
   width: 4rem;
   height: 4rem;
@@ -424,7 +415,7 @@ select {
   margin: 0rem 0rem 7.5rem 0.2rem;
   box-sizing: border-box;
   padding: 3.8rem 29.1rem 0.8rem 34.6rem;
-  width: 173rem;
+  width: 154rem;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -464,7 +455,7 @@ select {
 }
 .item--z9F .auto-group-nhgo-JS5 .auto-group-qgnp-Ehf .auto-group-cycp-SSM {
   margin: 0rem 21.7rem 0rem 13.9rem;
-  width: calc(100% - 35.6rem);
+  width: calc(100% - 20rem);
   height: 145.8rem;
   position: relative;
   flex-shrink: 0;
@@ -502,14 +493,14 @@ select {
   margin: 0rem 0rem 8.3rem 0.2rem;
   box-sizing: border-box;
   padding: 5.8rem 5.7rem 6.3rem 5.7rem;
-  width: 173rem;
+  width: 153rem;
   background-color: #ebf0e9;
   border-radius: 2rem;
   flex-shrink: 0;
 }
 .item--z9F .auto-group-nhgo-JS5 .auto-group-vvqd-sAH .id-20201111-s-Nsj {
-  margin-bottom: 4.8rem;
-  max-width: 24.9rem;
+  margin-bottom: 3.8rem;
+  max-width: 30rem;
   font-size: 4rem;
   font-weight: 800;
   line-height: 1.2125;
@@ -531,14 +522,14 @@ select {
   margin-left: 0.2rem;
   box-sizing: border-box;
   padding: 5.9rem 5.7rem 6.2rem 5.7rem;
-  width: 173rem;
+  width: 153rem;
   background-color: #ebf0e9;
   border-radius: 2rem;
   flex-shrink: 0;
 }
 .item--z9F .auto-group-nhgo-JS5 .auto-group-kdwj-TGu .id-20202222-m-n4H {
-  margin-bottom: 4.8rem;
-  max-width: 27.2rem;
+  margin-bottom: 0.8rem;
+  max-width: 30rem;
   font-size: 4rem;
   font-weight: 800;
   line-height: 1.2125;
@@ -557,3 +548,25 @@ select {
   font-family: 'Pretendard'
 }
 
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 130rem; /* 뷰포트 높이에 따라 조절할 수 있습니다. */
+}
+
+#productImage {
+    width: 400rem;
+    height: auto; /* 이미지의 가로 세로 비율을 유지 */
+
+}
+
+#productName {
+    font-size: 45px;
+    font-weight: bold;
+    color: #617861;
+    text-align: center; /* 텍스트를 가운데 정렬 */
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+
+}

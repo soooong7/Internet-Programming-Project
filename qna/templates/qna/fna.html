@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ko">
+{% load static %}
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <title>FAQ | OFDS</title>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/css/animate.css' %}"/>
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'assets/css/glightbox.min.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'assets/css/LineIcons.3.0.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'assets/css/tiny-slider.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'assets/fonts/pretendard.css' %}" media="screen">
+</head>
+
+<body>
+
+<!--[if lte IE 9]>
+<p class="browserupgrade">
+    You are using an <strong>outdated</strong> browser. Please
+    <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+    your experience and security.
+</p>
+<![endif]-->
+
+<!-- Preloader -->
+<div class="preloader">
+    <div class="preloader-inner">
+        <div class="preloader-icon">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+<!-- /End Preloader -->
+
+<!-- start header area -->
+<header class="header navbar-area">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <div class="nav-inner">
+                    <!-- Start Navbar -->
+                    <nav class="navbar navbar-expand-lg">
+                        <a class="navbar-brand" href="/main/">
+                            <img src="{% static 'assets/images/t_logo_green.png' %}" alt="Logo"
+                                 style="width:250px;">
+                        </a>
+                        <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                            <ul id="nav" class="navbar-nav ms-auto">
+                                <li class="nav-item">
+                                    <a href="/notice/" class="active" aria-label="Toggle navigation">Notice</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/products/" class="dd-menu collapsed" aria-label="Toggle navigation">Products</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/qna/" aria-label="Toggle navigation"
+                                       style="font-weight:700; text-decoration:underline;">
+                                        Q&A</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="button">
+                            <!-- 로그인 상태 확인, 로그인 상태면 Logout 버튼 / 비로그인 상태면 Login 버튼-->
+                            {% if user.is_authenticated %}
+                            <a href="/login/logout/" class="btn">Logout</a>
+                            {% else %}
+                            <a href="/login/" class="btn">Login</a>
+                            {% endif %}
+                        </div>
+                    </nav>
+                    <!-- End Navbar -->
+                </div>
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</header>
+<!-- End header area -->
+
+<!-- Start Faq Area -->
+<section class="faq section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title">
+                    <h3 class="wow zoomIn" data-wow-delay=".2s">FnA</h3>
+                    <h2 class="wow fadeInUp" data-wow-delay=".4s">자주 묻는 질문</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-12">
+                <div class="accordion" id="accordionExample">
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading1">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                                    <span class="title">
+                                        <span class="icon_notice">
+                                            <img src="{% static 'assets/images/icon_notice.png' %}" alt="icon_notice">
+                                        </span>
+                                        16,18,19ver의 뜻은 무엇인가요? 학번인가요?</span><i class="lni lni-plus"></i>
+                            </button>
+                        </h2>
+                        <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1"
+                             data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>도안이 만들어진 해 입니다!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                    <span class="title">
+                                        <span class="icon_notice">
+                                            <img src="{% static 'assets/images/icon_notice.png' %}">
+                                        </span>
+                                        주문서 작성했고 오픈카톡까지 들어갔는데<br>연락처가 변경되었습니다.<br>
+                                        주문서의 연락처는 어떡해야 할까요?</span><i
+                                    class="lni lni-plus"></i>
+                            </button>
+                        </h2>
+                        <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2"
+                             data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>주문서 마감 후 수정 기간 동안 수정 신청해 주시면 될 것 같습니다!</p>
+                                <p>수정 기간은 따로 공지하겠습니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading3">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                    <span class="title">
+                                        <span class="icon_notice">
+                                            <img src="{% static 'assets/images/icon_notice.png' %}">
+                                        </span>
+                                        2개 이상 구매한다면 송금 확인 캡쳐는<br>자신이 살 학잠 2개 모두 캡처해서 댓글로 달면 되나요?</span><i
+                                    class="lni lni-plus"></i>
+                            </button>
+                        </h2>
+                        <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3"
+                             data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>네 맞습니다!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-12 xs-margin">
+                <div class="accordion" id="accordionExample2">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading11">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse11" aria-expanded="false" aria-controls="collapse11">
+                                    <span class="title">
+                                        <span class="icon_notice">
+                                            <img src="{% static 'assets/images/icon_notice.png' %}">
+                                        </span>
+                                        18ver은 한문만 가능한가요?</span><i class="lni lni-plus"></i>
+                            </button>
+                        </h2>
+                        <div id="collapse11" class="accordion-collapse collapse" aria-labelledby="heading11"
+                             data-bs-parent="#accordionExample2">
+                            <div class="accordion-body">
+                                <p>19는 안에 문구가 영어/한문 이렇게 있는데 18은 한문만 가능합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading22">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse22" aria-expanded="false" aria-controls="collapse22">
+                                    <span class="title">
+                                        <span class="icon_notice">
+                                            <img src="{% static 'assets/images/icon_notice.png' %}">
+                                        </span>
+                                        글귀 반대쪽에 한자 이름을 추가할 수 있을까요?</span><i class="lni lni-plus"></i>
+                            </button>
+                        </h2>
+                        <div id="collapse22" class="accordion-collapse collapse" aria-labelledby="heading22"
+                             data-bs-parent="#accordionExample2">
+                            <div class="accordion-body">
+                                <p>불가합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading33">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse33" aria-expanded="false" aria-controls="collapse33">
+                                    <span class="title">
+                                        <span class="icon_notice">
+                                            <img src="{% static 'assets/images/icon_notice.png' %}">
+                                        </span>
+                                        토스로 입금했는데 입금자명 입력하는 부분 없이<br>바로 넘어갔네요. 괜찮을까요?</span><i
+                                    class="lni lni-plus"></i>
+                            </button>
+                        </h2>
+                        <div id="collapse33" class="accordion-collapse collapse" aria-labelledby="heading33"
+                             data-bs-parent="#accordionExample2">
+                            <div class="accordion-body">
+                                <p>네. 자동으로 본인 이름으로 옵니다!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="button d-flex justify-content-center" style="margin-top: 50px;">
+            <a href="{% url 'qna_list' %}" class="btn" style="text-align: center; margin-top: 30px; font-size: 1.5em;">질문하러 가기</a>
+        </div>
+</section>
+
+<!--/ End Faq Area -->
+<a href="#" class="scroll-top">
+    <i class="lni lni-chevron-up"></i>
+</a>
+
+<!-- Start Footer Area -->
+<footer class="footer section">
+    <!-- Start Copyright Area -->
+    <div class="copyright-area">
+        <div class="container">
+            <div class="inner-content">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <p class="copyright-text">© 2023 OFDS - All Rights Reserved</p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <p class="copyright-owner">Designed and Developed by 김민지 윤예원 이송미 장은선 편도나<br>
+                            Duksung Women's University Computer Engineering Internet Programming> Project Team</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Copyright Area -->
+</footer>
+<!--/ End Footer Area -->
+
+<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/js/count-up.min.js' %}"></script>
+<script src="{% static 'assets/js/glightbox.min.js' %}"></script>
+<script src="{% static 'assets/js/imagesloaded.min.js' %}"></script>
+<script src="{% static 'assets/js/isotope.min.js' %}"></script>
+<script src="{% static 'assets/js/main.js' %}"></script>
+<script src="{% static 'assets/js/tiny-slider.js' %}"></script>
+<script src="{% static 'assets/js/wow.min.js' %}"></script>
+
+<script>
+    //========= testimonial
+    tns({
+        container: '.testimonial-slider',
+        items: 3,
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        nav: true,
+        controls: false,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 1,
+            },
+            768: {
+                items: 2,
+            },
+            992: {
+                items: 2,
+            },
+            1170: {
+                items: 3,
+            }
+        }
+    });
+
+    //====== counter up
+    var cu = new counterUp({
+        start: 0,
+        duration: 2000,
+        intvalues: true,
+        interval: 100,
+        append: " ",
+    });
+    cu.start();
+
+    //========= glightbox
+    GLightbox({
+        'href': 'https://www.youtube.com/watch?v=r44RKWyfcFw&fbclid=IwAR21beSJORalzmzokxDRcGfkZA1AtRTE__l5N4r09HcGS5Y6vOluyouM9EM',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function () {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+</script>
+</body>
+</html>

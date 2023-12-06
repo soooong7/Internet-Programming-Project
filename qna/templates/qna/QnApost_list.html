@@ -1,0 +1,94 @@
+{% extends 'qna/base.html' %}
+{% load static %}
+
+{% block main_area %}
+
+{% block styles %}
+<style>
+    .btn-info {
+        background-color: #617861;
+        color: #ffffff;
+        border-color: #617861;
+    }
+
+    .single-blog-grid {
+        margin-bottom: 30px;
+        border: 1px solid #D3E4CD;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .single-blog-grid img {
+        width: 100%;
+        height: auto;
+        border-bottom: 1px solid #D3E4CD;
+    }
+
+    .blog-content {
+        padding: 20px;
+    }
+
+    .meta-info a {
+        color: #617861;
+        margin-right: 10px;
+        text-decoration: none;
+    }
+
+    .card-title {
+        color: #617861;
+    }
+
+    .card-text {
+        color: #617861;
+    }
+
+    .button a {
+        background-color: #617861;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        display: inline-block;
+        margin-top: 15px;
+    }
+</style>
+{% endblock %}
+
+{% if user.is_authenticated %}
+<a class="btn btn-info btn-sm float-right" href="/qna/created_post/" role="button"
+   style="background-color: #617861; color: #ffffff; border-color: #617861;">
+    질문하기
+</a>
+{% endif %}
+
+{% if post_list.exists %}
+{% for p in post_list %}
+<div class="row">
+    <div class="col-lg-12 col-md-6 col-12">
+        <div class="single-blog-grid" id="post-{{p.pk}}">
+            {% if p.head_image %}
+            <img class="card-img-top" src="{{p.head_image.url}}" width="500px" height="300" alt="{{ p }} head image"/>
+            {% endif %}
+            <div class="blog-content">
+                <div class="meta-info">
+                    <a class="date" href="javascript:void(0)"><i class="lni lni-timer"></i>
+                        Posted on {{p.created_at}} by
+                    </a>
+                    <a class="author" href="javascript:void(0)"><i class="lni lni-user"></i>
+                        {{p.author|upper}}
+                    </a>
+                </div>
+                <h2 class="card-title">{{ p.title }}</h2>
+                <p class="card-text">{{ p.get_question_markdown | truncatewords_html:45 | safe }}</p>
+                <div class="button">
+                    <a href="/qna/qna_detail/{{p.pk}}/" class="btn">자세히</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% else %}
+<h3>아직 질문이 없습니다</h3>
+{% endif %}
+{% endblock %}

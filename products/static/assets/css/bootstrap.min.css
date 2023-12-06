@@ -30,7 +30,7 @@
     --bs-dark: #212529;
     --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0))
+    --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
 }
 
 *,
@@ -39,22 +39,22 @@
     box-sizing: border-box
 }
 
-@font-face {
-  font-family: 'Pretendard';
-  src: url('C:\DSJ_Project\Internet_Programming_Project\products\static\assets\fonts');
-  font-weight: 400;
-  font-style: normal;
-}
-
 @media (prefers-reduced-motion:no-preference) {
     :root {
         scroll-behavior: smooth
     }
 }
 
+@font-face {
+  font-family: 'Pretendard';
+  src: url('C:\DSJ_Project\Internet_Programming_Project\products\static\fonts');
+  font-weight: 400;
+  font-style: normal;
+}
+
 body {
     margin: 0;
-    font-family: 'Pretendard';
+    font-family: Pretendard;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -247,7 +247,6 @@ sup {
 
 a {
     color: #617861;
-    text-decoration: underline
 }
 
 a:hover {
@@ -719,7 +718,8 @@ progress {
     max-width: 100%;
     padding-right: calc(var(--bs-gutter-x)/ 2);
     padding-left: calc(var(--bs-gutter-x)/ 2);
-    margin-top: var(--bs-gutter-y)
+    margin-top: var(--bs-gutter-y);
+    margin 0 auto;
 }
 
 .col {
@@ -3163,15 +3163,15 @@ fieldset:disabled .btn {
 }
 
 .btn-secondary {
-    color: #fff;
-    background-color: #6c757d;
-    border-color: #6c757d
+    color: #ffffff;
+    background-color: #617861;
+    border-color: #617861
 }
 
 .btn-secondary:hover {
-    color: #fff;
-    background-color: #5c636a;
-    border-color: #565e64
+    color: #617861;
+    background-color: #ffffff;
+    border-color: #ffffff
 }
 
 .btn-check:focus+.btn-secondary,
@@ -3360,6 +3360,8 @@ fieldset:disabled .btn {
     background-color: #bb2d3b;
     border-color: #b02a37;
     box-shadow: 0 0 0 .25rem rgba(225, 83, 97, .5)
+    /* 추가 */
+    color: #000000;
 }
 
 .btn-check:active+.btn-danger,
@@ -3439,7 +3441,7 @@ fieldset:disabled .btn {
 }
 
 .btn-dark:hover {
-    color: #fff;
+    color: #ffffff;
     background-color: #1c1f23;
     border-color: #1a1e21
 }
@@ -3763,7 +3765,7 @@ fieldset:disabled .btn {
 }
 
 .btn-outline-dark:hover {
-    color: #ffffff;
+    color: #fff;
     background-color: #617861;
     border-color: #617861
 }
@@ -3811,6 +3813,7 @@ fieldset:disabled .btn {
 .btn-link:disabled {
     color: #6c757d
 }
+
 /*추가*/
 .btn-gap {
     display: flex;
@@ -4438,7 +4441,8 @@ fieldset:disabled .btn {
     align-items: center;
     justify-content: space-between;
     padding-top: .5rem;
-    padding-bottom: .5rem
+    padding-bottom: .5rem;
+    height:80px;
 }
 
 .navbar>.container,
@@ -5004,7 +5008,7 @@ fieldset:disabled .btn {
     width: 100%;
     padding: 1rem 1.25rem;
     font-size: 1rem;
-    color: #212529;
+    color: #fff;
     text-align: left;
     background-color: transparent;
     border: 1px solid rgba(0, 0, 0, .125);
@@ -5024,13 +5028,12 @@ fieldset:disabled .btn {
 }
 
 .accordion-button:not(.collapsed) {
-    color: #0c63e4;
-    background-color: #e7f1ff
+    color: #fff;
+    background-color: #617861
 }
 
 .accordion-button:not(.collapsed)::after {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230c63e4'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-    transform: rotate(180deg)
+    background-color: #617861
 }
 
 .accordion-button::after {
@@ -5039,8 +5042,6 @@ fieldset:disabled .btn {
     height: 1.25rem;
     margin-left: auto;
     content: "";
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
     background-size: 1.25rem;
     transition: transform .2s ease-in-out
 }
@@ -5067,28 +5068,25 @@ fieldset:disabled .btn {
 }
 
 .accordion-item:first-of-type .accordion-button {
-    border-top-left-radius: .25rem;
-    border-top-right-radius: .25rem
+    border-radius:15px;
 }
 
 .accordion-item:last-of-type .accordion-button.collapsed {
     border-bottom-width: 1px;
-    border-bottom-right-radius: .25rem;
-    border-bottom-left-radius: .25rem
+    border-radius:15px;
 }
 
 .accordion-item:last-of-type .accordion-collapse {
     border-bottom-width: 1px;
-    border-bottom-right-radius: .25rem;
-    border-bottom-left-radius: .25rem
+    border-radius:0 0 15px 15px;
 }
 
 .accordion-collapse {
-    border: solid rgba(0, 0, 0, .125);
     border-width: 0 1px
 }
 
 .accordion-body {
+
     padding: 1rem 1.25rem
 }
 
@@ -5239,7 +5237,7 @@ fieldset:disabled .btn {
 .badge {
     display: inline-block;
     padding: .35em .65em;
-    font-size: .90em;
+    font-size: .75em;
     font-weight: 700;
     line-height: 1;
     color: #fff;

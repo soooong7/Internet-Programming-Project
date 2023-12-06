@@ -19,17 +19,18 @@ Author: GrayGrids
     /*=====================================
     Sticky
     ======================================= */
-    window.onscroll = function () {
+
+    /* window.onscroll = function () {
         var header_navbar = document.querySelector(".navbar-area");
-        var sticky = header_navbar.offsetTop;
+         var sticky = header_navbar.offsetTop;
 
         var logo = document.querySelector('.navbar-brand img')
         if (window.pageYOffset > sticky) {
           header_navbar.classList.add("sticky");
-          logo.src = '../static/notice/bootstrap/images/t_logo_green.png';
+          logo.src = '../static/notice/bootstrap/images/t_logo_white.png';
         } else {
           header_navbar.classList.remove("sticky");
-          logo.src = '../static/notice/bootstrap/images/t_logo_green.png';
+          logo.src = '../static/notice/bootstrap/images/t_logo_white.png';
         }
 
         // show or hide the back-top-top button
@@ -39,7 +40,7 @@ Author: GrayGrids
         } else {
             backToTo.style.display = "none";
         }
-    };
+    };*/
 
     // WOW active
     new WOW().init();

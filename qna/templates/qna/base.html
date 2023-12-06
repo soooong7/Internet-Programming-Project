@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ko">
+{% load static %}
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>FnA | OFDS</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/css/animate.css' %}" />
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'assets/css/glightbox.min.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'assets/css/LineIcons.3.0.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'assets/css/tiny-slider.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'assets/fonts/pretendard.css' %}" media="screen">
+</head>
+
+<body>
+
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+
+    <!-- start header area -->
+    <header class="header navbar-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <!-- Start Navbar -->
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/main/">
+                                <img src="{% static 'assets/images/t_logo_green.png' %}" alt="Logo"
+                                     style="width:250px;">
+                            </a>
+                            <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                    <li class="nav-item">
+                                        <a href="/notice/" class="active" aria-label="Toggle navigation">Notice</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/products/" class="dd-menu collapsed" aria-label="Toggle navigation">Products</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/qna/" aria-label="Toggle navigation" style="font-weight:700; text-decoration:underline;">
+                                            Q&A</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="button">
+                                <!-- 로그인 상태 확인, 로그인 상태면 Logout 버튼 / 비로그인 상태면 Login 버튼-->
+                                {% if user.is_authenticated %}
+                                    <a href="/login/logout/" class="btn">Logout</a>
+                                {% else %}
+                                    <a href="/login/" class="btn">Login</a>
+                                {% endif %}
+                            </div>
+                        </nav>
+                        <!-- End Navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- End header area -->
+
+<div class="container my-3">
+    <div class="row">
+        <div class="section-title" style="margin-top: 100px">
+            <h3 class="wow zoomIn" data-wow-delay=".2s">QnA</h3>
+            <h2 class="wow fadeInUp" data-wow-delay=".4s">질문게시판</h2>
+        </div>
+        <div class="col-lg-12 col-md-12 col-12" id="main-area">
+           {% block main_area %}
+            {% endblock %}
+        </div>
+
+<!--        <aside class="col-lg-4 col-md-12 col-12">-->
+<!--            <div class="sidebar">-->
+<!--                <div class="widget search-widget">-->
+<!--                    <h5 class="widget-title">Search This Site</h5>-->
+<!--                    <form action="#">-->
+<!--                        <input type="text" placeholder="Search ...">-->
+<!--                        <button type="submit"><i class="lni lni-search-alt"></i></button>-->
+<!--                    </form>-->
+<!--                </div>-->
+<!--                <div class="widget categories-widget" id="categories-card">-->
+<!--                    <h5 class="widget-title">Categories</h5>-->
+<!--                    <ul class="custom">-->
+<!--                        {% for category in categories %}-->
+<!--                            <li>-->
+<!--                                <a href="{{ category.get_absolute_url }}">{{ category }} ({{ category.post_set.count }})</a>-->
+<!--                            </li>-->
+<!--                        {% endfor %}-->
+<!--                            <li>-->
+<!--                                <a href="qna/category/no_category">미분류 ({{no_category_post_count}})</a>-->
+<!--                            </li>-->
+<!--                     </ul>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </aside>-->
+    </div>
+</div>
+
+<a href="#" class="scroll-top">
+    <i class="lni lni-chevron-up"></i>
+</a>
+
+    <!-- Start Footer Area -->
+    <footer class="footer section">
+        <!-- Start Copyright Area -->
+        <div class="copyright-area">
+            <div class="container">
+                <div class="inner-content">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <p class="copyright-text">© 2023 OFDS - All Rights Reserved</p>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <p class="copyright-owner">Designed and Developed by 김민지 윤예원 이송미 장은선 편도나<br>
+                                Duksung Women's University Computer Engineering <Internet Programming> Project Team</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Copyright Area -->
+    </footer>
+    <!--/ End Footer Area -->
+
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/count-up.min.js' %}"></script>
+    <script src="{% static 'assets/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'assets/js/imagesloaded.min.js' %}"></script>
+    <script src="{% static 'assets/js/isotope.min.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <script src="{% static 'assets/js/tiny-slider.js' %}"></script>
+    <script src="{% static 'assets/js/wow.min.js' %}"></script>
+
+    <script>
+
+
+        //========= testimonial
+        tns({
+            container: '.testimonial-slider',
+            items: 3,
+            slideBy: 'page',
+            autoplay: false,
+            mouseDrag: true,
+            gutter: 0,
+            nav: true,
+            controls: false,
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                540: {
+                    items: 1,
+                },
+                768: {
+                    items: 2,
+                },
+                992: {
+                    items: 2,
+                },
+                1170: {
+                    items: 3,
+                }
+            }
+        });
+
+        //====== counter up
+        var cu = new counterUp({
+            start: 0,
+            duration: 2000,
+            intvalues: true,
+            interval: 100,
+            append: " ",
+        });
+        cu.start();
+
+        //========= glightbox
+        GLightbox({
+            'href': 'https://www.youtube.com/watch?v=r44RKWyfcFw&fbclid=IwAR21beSJORalzmzokxDRcGfkZA1AtRTE__l5N4r09HcGS5Y6vOluyouM9EM',
+            'type': 'video',
+            'source': 'youtube', //vimeo, youtube or local
+            'width': 900,
+            'autoplayVideos': true,
+        });
+
+        //============== isotope masonry js with imagesloaded
+        imagesLoaded('#container', function () {
+            var elem = document.querySelector('.grid');
+            var iso = new Isotope(elem, {
+                // options
+                itemSelector: '.grid-item',
+                masonry: {
+                    // use outer width of grid-sizer for columnWidth
+                    columnWidth: '.grid-item'
+                }
+            });
+
+            let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+            filterButtons.forEach(e =>
+                e.addEventListener('click', () => {
+
+                    let filterValue = event.target.getAttribute('data-filter');
+                    iso.arrange({
+                        filter: filterValue
+                    });
+                })
+            );
+        });
+    </script>
+</body>
+</html>

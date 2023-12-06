@@ -2,6 +2,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as auth_login
+from django.urls import reverse
+
 from .forms import CustomUserCreationForm
 
 def home_view(request):
@@ -19,7 +21,7 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             auth_login(request, user)
-            return redirect('home')  # 로그인 후 리다이렉트할 URL을 설정하세요
+            return redirect('/main/')  # 로그인 후 리다이렉트할 URL을 설정하세요
     else:
         form = AuthenticationForm()
 
@@ -36,7 +38,7 @@ def signup(request):
         if form.is_valid():
             form.save()
             # 회원가입 성공 시 로그인 페이지로 리다이렉트
-            return redirect('login')
+            return redirect('/login/')
     else:
         form = CustomUserCreationForm()
 

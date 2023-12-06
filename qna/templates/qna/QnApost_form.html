@@ -1,0 +1,42 @@
+{% extends 'qna/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}Edit Comment | OFDS{% endblock %}
+
+{% block main_area %}
+
+{% block styles %}
+    <style>
+        body {
+            background-color: #EBF0E9;
+        }
+
+        h1 {
+            color: #617861;
+        }
+
+        form {
+            background-color: #D3E4CD;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .btn-primary {
+            background-color: #617861;
+            color: #ffffff;
+            border-color: #617861;
+        }
+    </style>
+{% endblock %}
+<h1>질문을 남겨주세요.</h1>
+<hr/>
+<form method="post" enctype="multipart/form-data">{% csrf_token %}
+    {{ form | crispy }}
+    <br/>
+    <button type="submit" class="btn btn-primary float-right"
+            style="background-color: #617861; color: #ffffff; border-color: #617861;">
+        저장
+    </button>
+</form>
+{% endblock %}

@@ -1,0 +1,228 @@
+{% extends 'products/base.html' %}
+
+{% load crispy_forms_tags %}
+{% block main_area %}
+    <!-- Start Blog Section Area -->
+    <section class="blog-section section">
+        <div class="container">
+            <!-- Start 소제목 -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <h3 class="wow zoomIn" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: zoomIn;">Purchase</h3>
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
+                            <i class="fa-solid fa-shirt" style="color: #617861;"></i>
+                            {{ productspost.name }}
+                            <i class="fa-solid fa-shirt" style="color: #617861;"></i>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <!-- End 소제목 -->
+            <!-- Start 1st row -->
+            <div class="row mb-50">
+                <!-- Start 학잠 이미지 -->
+                <div class="col-lg-6 col-md-6 col-12 wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
+                    <div class="single-blog-grid">
+                        <div class="blog-img">
+                            <a href="blog-single.html">
+                                <img  src="{{ productspost.image.url }}" style="max-width: 300px; height: auto; position: relative; left: 170px;" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- End 학잠 이미지 -->
+
+                <div class="col-lg-6 col-md-6 col-12 wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;top:50px">
+
+                    <div class="single-blog-grid">
+                        <!-- form 넣을 곳 시작 -->
+                            <div class="blog-content" style="padding-bottom: 30px;">
+
+                                <!-- 태그 배지 -->
+                                {% if productspost.type.all %}
+                                <span class="badge bg-dark">{{ productspost.type.all|join:", " }}</span>
+                                {% endif %}
+                                {% if productspost.color %}
+                                <span class="badge bg-dark">{{ productspost.color }}</span>
+                                {% endif %}
+
+                                <form method="post" onsubmit="purchase(); return false;">
+                                {% csrf_token %}
+
+                                    <p>사이즈</p>
+                                        <select id="sizeDropdown" name="selected_size" onchange="updateSelectedText('sizeDropdown', 'selectedSize')">
+                                            {% for size_category in size_categories %}
+                                                    <option value="{{ size_category.size }}">{{ size_category.size }}</option>
+                                            {% endfor %}
+                                        </select>
+
+
+                                    <p>수량</p>
+                                        <select id="quantityDropdown" name="selected_quantity" onchange="updateSelectedText('quantityDropdown', 'selectedQuantity')">
+                                            {% for quantity_category in quantity_categories %}
+                                                <option value="{{ quantity_category.quantity }}">{{ quantity_category.quantity }}</option>
+                                            {% endfor %}
+                                        </select>
+
+                                    <p class="item-50000-sRs" id="price-display">가격: <span id="current-price">{{ productspost.price }} 원</span></p>
+                                    <div class="button" style="margin-bottom:54px !important; padding:10px 20px 10px; width:30%; background-color:#617861; border-radius:50px;">
+                                        <button type="submit" style="text-decoration:none; padding-left: 38px; color: #ffffff; background-color: #617861; font-weight: 600; border: none; font-size: 18px;">구매하기</button>
+
+                                    </div>
+                                </form>
+
+                                </div>
+                            </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- End 1st row -->
+            <!-- Start 소제목 -->
+            <div class="row">
+                    <div class="col-12">
+                        <div class="section-title">
+                            <h3 class="wow zoomIn" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: zoomIn; margin-top: 100px;">Details</h3>
+                            <h2 class="wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp; margin-bottom: 80px;">상세보기</h2>
+                        </div>
+                    </div>
+                </div>
+            <!-- End 소제목 -->
+        </div>
+
+            <!-- Start 상세페이지 -->
+        <div class="container">
+            <div class="row mb-50">
+                <div class="mt-50 col-lg-12 col-md-6 col-12 wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
+                    <div class="single-blog-grid">
+                        <div class="blog-content">
+                            <div style="position: relative; display: flex; justify-content: center; align-items: center; height: 100vh;">
+                                <img id="productImage" src="{{ productspost.detailimage.url }}" alt="{{ productspost.name }}" style="max-width: 100%; max-height: 100%;" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!-- End 상세페이지 -->
+
+        <!-- Start 소제목 -->
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title">
+                    <h3 class="wow zoomIn" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: zoomIn;">Review</h3>
+                    <h2 class="wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">구매후기</h2>
+                </div>
+            </div>
+        </div>
+        <!-- End 소제목 -->
+
+
+        <!-- 구매 후기 (댓글) -->
+        <div class="container">
+            <div id="comment-area">
+                <div class="card my-4">
+                    <h5 class="card-header" style="background-color: #617861; color: #FFFFFF;">후기를 남겨주세요!</h5>
+
+                    <div class="card-body" style="background-color: #f8f9fa;">
+
+                        <!-- 로그인 상태 확인-->
+                        {% if user.is_authenticated %}
+                        <form id="comment-form" method="POST" action="{{ productspost.get_absolute_url }}new_comment/">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                {{ comment_form | crispy }}
+                            </div>
+                            <button type="submit" class="btn btn-primary float-right"
+                                    style="background-color: #617861; color: #FFFFFF; border-color: #617861;">등록
+                            </button>
+                        </form>
+                        {% else %}
+                        <a role="button" class="btn btn-outline-dark btn-block btn-sm" href="#" data-toggle="modal"
+                           data-target="#loginModal" style="background-color: #617861; color: #FFFFFF;">
+                            로그인 후 댓글을 남겨주세요.
+                        </a>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                {% if productspost.comment_set.exists %}
+                    <div id="comments" class="mb-4">
+                        {% for comment in productspost.comment_set.iterator %}
+                        <div class="media" id="comment-{{ comment.pk }}"
+                             style="background-color: #f8f9fa; padding: 15px; border-radius: 5px;">
+                            <div class="media-body">
+                                <!-- 로그인 상태 확인 -->
+                                {% if user.is_authenticated %}
+                                    <!-- 댓글 작성자 확인 -->
+                                    {% if comment.author == user %}
+                                    <div class="float-right">
+                                        <!-- 후기 댓글 수정 -->
+                                        <a role="button" class="btn btn-sm btn-info" id="comment-{{ comment.pk }}-update-btn"
+                                           href="/products/update_comment/{{ comment.pk }}/"
+                                           style="background-color: #617861; color: #FFFFFF; border-color: #617861;">
+                                            수정
+                                        </a>
+                                        <!-- 후기 댓글 삭제 -->
+                                        <a role="button" class="btn btn-sm btn-danger" id="comment-{{ comment.pk }}-delete-btn"
+                                           data-toggle="modal" data-target="#deleteCommentModal-{{ comment.pk }}" href="#"
+                                           style="background-color: #617861; color: #FFFFFF; border-color: #617861;">
+                                            삭제
+                                        </a>
+
+                                        <!-- 댓글 삭제 Modal {{ comment.pk }} -->
+                                        <div class="modal fade" id="deleteCommentModal-{{ comment.pk }}" tabindex="-1"
+                                             role="dialog" aria-labelledby="deleteCommentModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="deleteModalLabel">정말 삭제하시겠습니까?</h5>
+                                                        <!-- x버튼 -->
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+
+                                                    <!-- 삭제되는 댓글 내용 표시 -->
+                                                    <div class="modal-body">
+                                                        <del>{{ comment | linebreaks }}</del>
+                                                    </div>
+
+                                                    <!-- 취소, 삭제 버튼 -->
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+                                                        <a role="button" class="btn btn-danger"
+                                                           href="/products/delete_comment/{{ comment.pk }}/">Delete</a>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
+
+                                    <h5 class="mt-0">{{ comment.author.username }} &nbsp;&nbsp;<small class="text-muted">
+                                        {{ comment.created_at }}</small></h5>
+                                    <p>{{ comment.content | linebreaks }}</p>
+
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                {% endif %}
+                    </div>
+                </div>
+            </div>
+    </section>
+    <!-- End Blog Section Area -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+{% endblock %}
