@@ -167,32 +167,37 @@
             alert("지금은 구매시즌이 아닙니다.");
         }
 
-      $(document).ready(function () {
-        // 사이즈나 수량이 변경될 때마다 가격을 업데이트
-        $('#sizeDropdown, #quantityDropdown').change(function () {
-            updatePrice();
-        });
+    updatePrice();
 
-        // AJAX를 사용하여 가격을 업데이트하는 함수
-        function updatePrice() {
-            var size = $('#sizeDropdown').val();
-            var quantity = $('#quantityDropdown').val();
+    function updatePrice() {
+        var size = document.getElementById('sizeDropdown').value;
+        var quantity = document.getElementById('quantityDropdown').value;
+        var price = calculatePrice(size, quantity);
+        document.getElementById('current-price').innerText = price + ' 원';
+    }
 
-            // 새로운 가격을 얻기 위한 AJAX 요청
-            $.ajax({
-                url: '{% url "get_price" %}',
-                data: {'size': size, 'quantity': quantity},
-                dataType: 'json',
-                success: function (data) {
-                    // price-display 엘리먼트를 새로운 가격으로 업데이트
-                    $('#current-price').text(data.price + ' 원');
-                },
-                error: function (error) {
-                    console.log('에러:', error);
-                }
-            });
+    function calculatePrice(size, quantity) {
+        var basePrice = {{ productspost.price }};
+        var sizePrice = 0;
+
+        switch (size) {
+            case 'XS':
+            case 'S':
+            case 'M':
+                sizePrice = 0;
+                break;
+            case 'L':
+                sizePrice = 1000;
+                break;
+            case 'XL':
+                sizePrice = 2000;
+                break;
+            default:
+                sizePrice = 0;
         }
-    });
+        var totalPrice = (basePrice + sizePrice) * quantity;
+        return totalPrice;
+    }
 
    {% if success_message %}
 

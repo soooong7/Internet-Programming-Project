@@ -147,41 +147,6 @@ def your_form_submission_view(request):
     else:
         return HttpResponse("잘못된 요청입니다.")
 
-def calculate_price(size, quantity):
-    base_price = ProductsPost.objects.first().price
-    additional_charge1 = 1000  # L 추가 비용 1000원
-    additional_charge2 = 2000  # XL 추가 비용 2000원
-
-    try:
-        quantity = int(quantity)
-    except ValueError:
-        quantity = 0
-    if size == 'XS':
-        price = base_price * quantity
-    elif size == 'S':
-        price = base_price * quantity
-    elif size == 'M':
-        price = base_price * quantity
-    elif size == 'L':
-        price = (base_price + additional_charge1) * quantity
-    elif size == 'XL':
-        price = (base_price + additional_charge2) * quantity
-    else:
-        price = 0
-
-    return price
-
-def get_price(request):
-    if request.method == 'GET':
-        size = request.GET.get('size')
-        quantity = request.GET.get('quantity')
-
-        # 선택된 사이즈와 수량을 기반으로 가격을 계산
-        price = calculate_price(size, quantity)
-
-        # 가격을 JSON 형식으로 반환
-        return JsonResponse({'price': price})
-
 def product_detail(request, product_id):
     product = ProductsPost.objects.get(id=product_id)
 

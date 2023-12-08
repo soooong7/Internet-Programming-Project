@@ -51,7 +51,7 @@
                                 {% csrf_token %}
 
                                     <p>사이즈</p>
-                                        <select id="sizeDropdown" name="selected_size" onchange="updateSelectedText('sizeDropdown', 'selectedSize')">
+                                        <select id="sizeDropdown" name="selected_size" onchange="updatePrice()">
                                             {% for size_category in size_categories %}
                                                     <option value="{{ size_category.size }}">{{ size_category.size }}</option>
                                             {% endfor %}
@@ -59,7 +59,7 @@
 
 
                                     <p>수량</p>
-                                        <select id="quantityDropdown" name="selected_quantity" onchange="updateSelectedText('quantityDropdown', 'selectedQuantity')">
+                                        <select id="quantityDropdown" name="selected_quantity" onchange="updatePrice()">
                                             {% for quantity_category in quantity_categories %}
                                                 <option value="{{ quantity_category.quantity }}">{{ quantity_category.quantity }}</option>
                                             {% endfor %}

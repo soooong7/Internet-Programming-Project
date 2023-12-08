@@ -17,7 +17,6 @@ class TypeCategoryAdmin(admin.ModelAdmin):
     list_display = ['id', 'type']
     prepopulated_fields = {'slug': ('type',)}
 
-
 admin.site.register(ProductsPost)
 admin.site.register(Comment)
 admin.site.register(ColorCategory, ColorCategoryAdmin)
